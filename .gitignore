@@ -6,6 +6,43 @@
 /GLUT/.vscode/.browse.VC.db
 /GLUT/.vscode/.browse.VC.db-shm
 /GLUT/.vscode/.browse.VC.db-wal
+.vscode/.browse.VC.db
+.vscode/.browse.VC.db-shm
+.vscode/.browse.VC.db-wal
 /GLUT/x64/Debug
 /Project1.VC.VC.opendb
 /Project1.VC.db
+
+ -### C++ ###
+-# Compiled Object files
+-*.slo
+-*.lo
+-*.o
+-*.obj
+-
+-# Precompiled Headers
+-*.gch
+-*.pch
+-
+-# Compiled Dynamic libraries
+-*.so
+-*.dylib
+-*.dll
+-
+-# Fortran module files
+-*.mod
+-
+-# Compiled Static libraries
+-*.lai
+-*.la
+-*.a
+-*.lib
+-
+-# Executables
+-*.exe
+-*.out
+-*.app
+-
+-
+-### VisualStudioCode ###
+-.vscode
