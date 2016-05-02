@@ -6,9 +6,6 @@
 /GLUT/.vscode/.browse.VC.db
 /GLUT/.vscode/.browse.VC.db-shm
 /GLUT/.vscode/.browse.VC.db-wal
-.vscode/.browse.VC.db
-.vscode/.browse.VC.db-shm
-.vscode/.browse.VC.db-wal
 /GLUT/x64/Debug
 /Project1.VC.VC.opendb
 /Project1.VC.db
@@ -45,4 +42,7 @@
 -
 -
 -### VisualStudioCode ###
+-.vscode/.browse.VC.db
+-.vscode/.browse.VC.db-shm
+-.vscode/.browse.VC.db-wal
 -.vscode
