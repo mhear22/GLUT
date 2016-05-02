@@ -1,6 +1,9 @@
 #include <GL/glut.h>
 #include <cstdio>
-#include <time.h>
+#include <chrono>
+#include <thread>
+
+using namespace std::chrono;
 
 class Game
 {
@@ -8,4 +11,5 @@ public:
 	Game();
 private:
 	void static Draw();
+	void static CheckFPS();
 };

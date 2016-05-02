@@ -10,30 +10,46 @@ Game::Game()
 	glutInitWindowSize(400,400);
 	glutCreateWindow("window");
 	glutDisplayFunc(Draw);
+	glutIdleFunc(Draw);
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
+	
 	glutMainLoop();
 }
 
-static clock_t lastFrame = clock();
-
+static high_resolution_clock::time_point lastFrame = high_resolution_clock::now();
 static float FPS = 0.0f;
+
+void Game::CheckFPS()
+{
+	high_resolution_clock::time_point currentFrame = high_resolution_clock::now();
+	
+	duration<float> delta = duration_cast<duration<float>>(currentFrame - lastFrame);
+
+	
+	FPS	= 1.0/delta.count();
+
+	lastFrame = currentFrame;
+}
 
 void Game::Draw()
 {
-	float change = clock() - lastFrame; 
-	FPS = CLOCKS_PER_SEC/change;
-	printf("fps: %f \n", FPS);
-	
+	std::thread t1(CheckFPS);
+	t1.detach();
+
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBegin(GL_TRIANGLES);
 		
-		glVertex2i(-1, -1);
-		glVertex2i(1, -1);
-		glVertex2i(1, 1);
+		for(float i = 0; i < 100; i++)
+		{
+			glVertex3f(	1.0,	1.0,	0);
+			glVertex3f(	-1.0,	1.0,	0);
+			glVertex3f(	i/500.0 - 1,	-1.0,	0);
 		
-		glVertex2i(1, 1);
-		glVertex2i(-1, 1);
-		glVertex2i(-1, -1);
+		}
+		
+		//glVertex2i(1, 1);
+		//glVertex2i(-1, 1);
+		//glVertex2i(-1, -1);
 		
 	glEnd();
 	glutSwapBuffers();
