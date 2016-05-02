@@ -46,4 +46,6 @@
 -.vscode/.browse.VC.db-shm
 -.vscode/.browse.VC.db-wal
 -.vscode
-*.VC.db
+.browse.VC.db
+.browse.VC.db-shm
+.browse.VC.db-wal
