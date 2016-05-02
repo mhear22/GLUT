@@ -1,4 +1,4 @@
-#if
+#define FREEGLUT_STATIC
 #include <GL/glut.h>
 #include <cstdio>
 #include <time.h>
