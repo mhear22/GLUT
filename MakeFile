@@ -1,0 +1,13 @@
+CC=g++
+SRC=GLUT/Source/
+OBJ=$(SRC)*.cpp
+CFLG= -std=c++11
+LIBS= -lpthread -lGL -lGLU -lglut -lX11
+
+all: Main
+	
+Main:
+	$(CC) $(CFLG) $(OBJ) $(LIBS)
+	
+clean:
+	rm a.out
