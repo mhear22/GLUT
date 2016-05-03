@@ -9,6 +9,9 @@ Game::Game()
 	glutInitWindowPosition(100, 100);
 	glutInitWindowSize(400,400);
 	glutCreateWindow("window");
+	glutFullScreen();
+	glutKeyboardUpFunc(KeyPress);
+	glutMouseFunc(Mouse);
 	glutDisplayFunc(Draw);
 	glutIdleFunc(Draw);
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
@@ -53,4 +56,27 @@ void Game::Draw()
 		
 	glEnd();
 	glutSwapBuffers();
+}
+
+void Game::KeyPress(unsigned char key, int x, int y)
+{
+	//escape
+	if (key == 27)
+	{
+		exit(0);
+	}
+
+	//alt enter
+	if (key == 13)
+	{
+		glutReshapeWindow(400,400);
+		glutPositionWindow(0,0);
+	}
+
+
+}
+
+void Game::Mouse(int button, int state, int x, int y)
+{
+	
 }
