@@ -16,7 +16,7 @@ Game::Game()
 	glutIdleFunc(Draw);
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
 	
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	glutMainLoop();
 }
@@ -46,16 +46,17 @@ void Game::Draw()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBegin(GL_TRIANGLES);
 		
-		if(i == 0)
+		
+		for(float z = 0; i > z;z++)
 		{
-			DrawSquare(-0.9,-0.9,1.8,1.8);
-			i = 1;
-		}
-		else
-		{
-			i = 0;
+			float pos = 1/(z);
+			float size = 2 / (z);
+			glColor3f(pos,pos,pos);
+			DrawSquare(-pos,-pos,size,size);
 		}
 
+		i++;
+		
 	glEnd();
 	glutSwapBuffers();
 }
