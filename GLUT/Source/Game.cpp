@@ -16,6 +16,8 @@ Game::Game()
 	glutIdleFunc(Draw);
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
 	
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 	glutMainLoop();
 }
 
@@ -34,6 +36,8 @@ void Game::CheckFPS()
 	lastFrame = currentFrame;
 }
 
+int i = 0;
+
 void Game::Draw()
 {
 	std::thread t1(CheckFPS);
@@ -42,20 +46,59 @@ void Game::Draw()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBegin(GL_TRIANGLES);
 		
-		for(float i = 0; i < 100; i++)
+		if(i == 0)
 		{
-			glVertex3f(	1.0,	1.0,	0);
-			glVertex3f(	-1.0,	1.0,	0);
-			glVertex3f(	i/500.0 - 1,	-1.0,	0);
-		
+			DrawSquare(-0.9,-0.9,1.8,1.8);
+			i = 1;
 		}
-		
-		//glVertex2i(1, 1);
-		//glVertex2i(-1, 1);
-		//glVertex2i(-1, -1);
-		
+		else
+		{
+			i = 0;
+		}
+
 	glEnd();
 	glutSwapBuffers();
+}
+
+void Game::DrawHex(float x, float y, float scale)
+{
+	
+
+
+	glVertex3f(x, y + (scale / 2), 0.0);
+	glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
+	glVertex3f(x + (scale / 3), y, 0.0);
+
+	glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
+	glVertex3f(x + (scale / 3), y, 0.0);
+	glVertex3f(x + 2 * (scale / 3), y, 0.0);
+
+	glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
+	glVertex3f(x + 2 * (scale / 3), y, 0.0);
+	glVertex3f(x + scale, y + (scale / 2), 0.0);
+
+	glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
+	glVertex3f(x + scale, y + (scale / 2), 0.0);
+	glVertex3f(x + 2 * (scale / 3), y + (scale), 0.0);
+
+	glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
+	glVertex3f(x + 2 * (scale / 3), y + (scale), 0.0);
+	glVertex3f(x + 1 * (scale / 3), y + (scale), 0.0);
+
+	glVertex3f(x + 1 * (scale / 3), y + (scale), 0.0);
+	glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
+	glVertex3f(x, y + (scale / 2), 0.0);
+}
+
+void Game::DrawSquare(float x, float y, float width, float height)
+{
+	glVertex3f(x, y, 0);
+	glVertex3f(x + width, y, 0);
+	glVertex3f(x + width, y + height, 0);
+
+	glVertex3f(x + width, y + height, 0);
+	glVertex3f(x, y + height, 0);
+	glVertex3f(x, y, 0);
 }
 
 void Game::KeyPress(unsigned char key, int x, int y)
