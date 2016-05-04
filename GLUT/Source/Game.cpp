@@ -29,6 +29,7 @@ static float FPS = 0.0f;
 
 void Game::CheckFPS()
 {
+	//if(clock_t())
 	high_resolution_clock::time_point currentFrame = high_resolution_clock::now();
 	
 	duration<float> delta = duration_cast<duration<float>>(currentFrame - lastFrame);
@@ -45,7 +46,7 @@ float i2 = 0;
 void Game::Draw()
 {
 	std::thread t1(CheckFPS);
-	t1.detach();
+	//t1.detach();
 
 	glClear(GL_COLOR_BUFFER_BIT);
 
@@ -54,6 +55,7 @@ void Game::Draw()
 
 	
 	Draw::Text(-1,-1, std::to_string(FPS));
+	t1.join();
 	glutPostRedisplay();
 	glutSwapBuffers();
 }
