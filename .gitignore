@@ -49,3 +49,5 @@
 .browse.VC.db
 .browse.VC.db-shm
 .browse.VC.db-wal
+/OpenGL.VC.VC.opendb
+/OpenGL.VC.db
