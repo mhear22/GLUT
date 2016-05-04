@@ -13,6 +13,20 @@ void Draw::Square(float x, float y, float width, float height)
 	glEnd();
 }
 
+void Draw::Text(float x, float y, std::string text)
+{
+	glColor3f(0, 0, 1);
+	glRasterPos2f(x,y);
+	for (int i = 0; i < text.length() ; i++)
+	{
+		if(text[i] == '.')
+		{
+			break;
+		}
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,text[i]);
+	}
+}
+
 void Draw::Hex(float x, float y, float scale)
 {
 	glBegin(GL_POLYGON);

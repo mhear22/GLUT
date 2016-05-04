@@ -13,7 +13,7 @@ Game::Game()
 	glutKeyboardUpFunc(KeyPress);
 	glutMouseFunc(Mouse);
 	glutDisplayFunc(Draw);
-	glutIdleFunc(Draw);
+	//glutIdleFunc(Draw);
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
 	
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -39,18 +39,22 @@ void Game::CheckFPS()
 	lastFrame = currentFrame;
 }
 
-int i = 0;
-int i2 = 0;
+float i = 0;
+float i2 = 0;
 
 void Game::Draw()
 {
 	std::thread t1(CheckFPS);
 	t1.detach();
+
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	glColor3f(0.1,0.1,0.1);
+	glColor3f(i,i2,0.5);
 	Draw::Square(-1,-1,2,2);
 
+	
+	Draw::Text(-1,-1, std::to_string(FPS));
+	glutPostRedisplay();
 	glutSwapBuffers();
 }
 
@@ -72,6 +76,31 @@ void Game::KeyPress(unsigned char key, int x, int y)
 		glutReshapeWindow(400,400);
 		glutPositionWindow(0,0);
 	}
+
+
+	//97<
+	//100>
+
+	if (key == 97)
+	{
+		i2 = i2 + 0.1;
+	}
+
+	if (key == 100)
+	{
+		i2 = i2 - 0.1;
+	}
+
+	if (key == 119)
+	{
+		i = i + 0.1;
+	}
+	if (key == 115)
+	{
+		i= i- 0.1;
+	}
+
+
 
 
 }
