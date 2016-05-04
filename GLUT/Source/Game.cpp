@@ -54,8 +54,10 @@ void Game::Draw()
 			glColor3f(pos,pos,pos);
 			DrawSquare(-pos,-pos,size,size);
 		}
-
-		i++;
+		if(i < 25)
+		{
+			i++;
+		}
 		
 	glEnd();
 	glutSwapBuffers();
