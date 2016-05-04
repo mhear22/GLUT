@@ -1,8 +1,11 @@
 #include <GL/glut.h>
 #include <cstdio>
 #include <chrono>
+#include <time.h>
 #include <thread>
 #include <tuple>
+
+#include "Draw.h"
 
 using namespace std::chrono;
 
