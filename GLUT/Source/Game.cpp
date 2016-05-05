@@ -51,7 +51,7 @@ void Game::Draw()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glColor3f(i,i2,0.5);
-	Draw::Square(-1,-1,2,2);
+	Draw::TriangleWall();
 
 	
 	Draw::Text(-1,-1, std::to_string(FPS));
