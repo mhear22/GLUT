@@ -15,5 +15,5 @@ public:
 	void static Text(float x, float y, std::string text);
 
 private:
-	float static Draw::randomFloat(float low, float high);
+	float static RandomFloat(float low, float high);
 };

@@ -51,14 +51,13 @@ void Draw::TriangleWall()
 				&& vertex[1][1][1] <= centre[1] + 0.00001
 				&& vertex[1][1][1] >= centre[1] - 0.00001)
 			{
-				centre[0] = randomFloat(-0.9, 0.9);
-				centre[1] = randomFloat(-0.9, 0.9);
+				centre[0] = RandomFloat(-0.9, 0.9);
+				centre[1] = RandomFloat(-0.9, 0.9);
 				lastClock = clock() + 1000;
 			}
 			else
 			{
 				lastClock = clock() + 10;
-
 			}
 
 		}
@@ -85,7 +84,7 @@ void Draw::TriangleWall()
 	glEnd();
 }
 
-float Draw::randomFloat(float low, float high)
+float Draw::RandomFloat(float low, float high)
 {
 	float f = (float) rand() / (float)RAND_MAX;
 
