@@ -21,7 +21,6 @@ private:
 	class Mouse
 	{
 	public:		void static Clicked(int button, int state, int x, int y);		void static Moved(int x, int y);		void static Entering(int state);
-
 	};
 
 	class Keyboard

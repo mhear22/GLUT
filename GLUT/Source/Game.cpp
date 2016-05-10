@@ -64,8 +64,8 @@ void Game::Draw()
 	
 	Draw::Text(-1,-1, std::to_string(FPS));
 	t1.join();
-	glutPostRedisplay();
 	glutSwapBuffers();
+	glutPostRedisplay();
 }
 
 void Game::Mouse::Clicked(int button, int state, int x, int y)
@@ -78,12 +78,11 @@ void Game::Mouse::Clicked(int button, int state, int x, int y)
 
 void Game::Mouse::Moved(int x, int y)
 {
-	
+	glutSetCursor(GLUT_CURSOR_NONE);
 }
 
 void Game::Mouse::Entering(int state)
 {
-	
 }
 
 void Game::Keyboard::KeyPress(unsigned char key, int x, int y)

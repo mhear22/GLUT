@@ -38,33 +38,32 @@ static float centre[2] = {0,0};
 
 void Draw::TriangleWall()
 {
-		
+	if(lastClock <= clock())
+	{
+		vertex[1][1][0] = { 1.01f * (centre[0] / 10) + 8.99f * (vertex[1][1][0] / 10) };
+		vertex[1][1][1] = { 1.01f * (centre[1] / 10) + 8.99f * (vertex[1][1][1] / 10) };
 
-		auto currentClock = clock();
-		if(lastClock <= clock())
+		if(    vertex[1][1][0] <= centre[0] + 0.00001
+			&& vertex[1][1][0] >= centre[0] - 0.00001
+			&& vertex[1][1][1] <= centre[1] + 0.00001
+			&& vertex[1][1][1] >= centre[1] - 0.00001)
 		{
-			vertex[1][1][0] = { 1.01f * (centre[0] / 10) + 8.99f * (vertex[1][1][0] / 10) };
-			vertex[1][1][1] = { 1.01f * (centre[1] / 10) + 8.99f * (vertex[1][1][1] / 10) };
-
-			if(    vertex[1][1][0] <= centre[0] + 0.00001
-				&& vertex[1][1][0] >= centre[0] - 0.00001
-				&& vertex[1][1][1] <= centre[1] + 0.00001
-				&& vertex[1][1][1] >= centre[1] - 0.00001)
-			{
-				centre[0] = RandomFloat(-0.9, 0.9);
-				centre[1] = RandomFloat(-0.9, 0.9);
-				lastClock = clock() + 1000;
-			}
-			else
-			{
-				lastClock = clock() + 10;
-			}
-
+			centre[0] = RandomFloat(-0.9, 0.9);
+			centre[1] = RandomFloat(-0.9, 0.9);
+			lastClock = clock() + 1000;
 		}
+		else
+		{
+			lastClock = clock() + 10;
+		}
+
+	}
 
 	glBegin(GL_TRIANGLES);
 
-		glColor3f(abs(vertex[1][1][0]), abs(vertex[1][1][0]),0);
+		
+		glColor3f(1,0,0);
+
 		glVertex2fv(vertex[0][0]);
 		glVertex2fv(vertex[0][1]);
 		glVertex2fv(vertex[1][1]);
@@ -73,7 +72,8 @@ void Draw::TriangleWall()
 		glVertex2fv(vertex[2][1]);
 		glVertex2fv(vertex[1][1]);
 
-		glColor3f(abs(vertex[1][1][1]), abs(vertex[1][1][0]), 0);
+		glColor3f(1,0, 0);
+		
 		glVertex2fv(vertex[0][1]);
 		glVertex2fv(vertex[0][2]);
 		glVertex2fv(vertex[1][1]);
