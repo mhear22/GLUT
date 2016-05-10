@@ -10,9 +10,15 @@ Game::Game()
 	glutInitWindowSize(400,400);
 	glutCreateWindow("window");
 	glutFullScreen();
-	glutKeyboardUpFunc(KeyPress);
-	glutMouseFunc(Mouse);
+	glutKeyboardUpFunc(Keyboard::KeyPress);
+	glutMouseFunc(Mouse::Clicked);
 	glutDisplayFunc(Draw);
+	
+	//implement
+	glutPassiveMotionFunc(Mouse::Moved);
+	
+	glutEntryFunc(Mouse::Entering);
+	
 	//glutIdleFunc(Draw);
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
 	
@@ -51,6 +57,8 @@ void Game::Draw()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glColor3f(i,i2,0.5);
+	Draw::Square(-1,-1,2,2);
+
 	Draw::TriangleWall();
 
 	
@@ -60,54 +68,66 @@ void Game::Draw()
 	glutSwapBuffers();
 }
 
-
-
-
-
-void Game::KeyPress(unsigned char key, int x, int y)
+void Game::Mouse::Clicked(int button, int state, int x, int y)
 {
-	//escape
+	if (state = GLUT_UP)
+	{
+	
+	}
+}
+
+void Game::Mouse::Moved(int x, int y)
+{
+	
+}
+
+void Game::Mouse::Entering(int state)
+{
+	
+}
+
+void Game::Keyboard::KeyPress(unsigned char key, int x, int y)
+{
 	if (key == 27)
 	{
 		exit(0);
 	}
-
-	//alt enter
+	
 	if (key == 13)
 	{
-		glutReshapeWindow(400,400);
-		glutPositionWindow(0,0);
+		glutReshapeWindow(400, 400);
+		glutPositionWindow(0, 0);
 	}
-
-
-	//97<
-	//100>
 
 	if (key == 97)
 	{
-		i2 = i2 + 0.1;
+		if(i2 < 1)
+		{
+			i2 = i2 + 0.1;
+		}
+
 	}
 
 	if (key == 100)
 	{
-		i2 = i2 - 0.1;
+		if (i2 > 0.1)
+		{
+			i2 = i2 - 0.1;
+		}
 	}
 
 	if (key == 119)
 	{
-		i = i + 0.1;
+		if (i < 1)
+		{
+			i = i + 0.1;
+		}
 	}
 	if (key == 115)
 	{
-		i= i- 0.1;
+		if (i > 0.1)
+		{
+			i = i - 0.1;
+		}
 	}
-
-
-
-
-}
-
-void Game::Mouse(int button, int state, int x, int y)
-{
-	
 }
