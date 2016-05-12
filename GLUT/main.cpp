@@ -23,8 +23,7 @@ int main()
 	glfwMakeContextCurrent(w);
 	while (!glfwWindowShouldClose(w))
 	{
-		
-		
+		glClear(0);
 		glBegin(GL_TRIANGLES);
 		
 		glVertex3f(1,-1,0);
