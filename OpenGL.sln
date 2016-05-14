@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLUT", "GLUT\GLUT.vcxproj", "{3B6D7589-D668-42CE-ABBA-2D515D9622CF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLUT", "GLUT\GLUT.vcxproj", "{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3B6D7589-D668-42CE-ABBA-2D515D9622CF}.Debug|x64.ActiveCfg = Debug|x64
-		{3B6D7589-D668-42CE-ABBA-2D515D9622CF}.Debug|x64.Build.0 = Debug|x64
-		{3B6D7589-D668-42CE-ABBA-2D515D9622CF}.Debug|x86.ActiveCfg = Debug|Win32
-		{3B6D7589-D668-42CE-ABBA-2D515D9622CF}.Debug|x86.Build.0 = Debug|Win32
-		{3B6D7589-D668-42CE-ABBA-2D515D9622CF}.Release|x64.ActiveCfg = Release|x64
-		{3B6D7589-D668-42CE-ABBA-2D515D9622CF}.Release|x64.Build.0 = Release|x64
-		{3B6D7589-D668-42CE-ABBA-2D515D9622CF}.Release|x86.ActiveCfg = Release|Win32
-		{3B6D7589-D668-42CE-ABBA-2D515D9622CF}.Release|x86.Build.0 = Release|Win32
+		{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}.Debug|x64.ActiveCfg = Debug|x64
+		{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}.Debug|x64.Build.0 = Debug|x64
+		{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}.Debug|x86.ActiveCfg = Debug|Win32
+		{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}.Debug|x86.Build.0 = Debug|Win32
+		{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}.Release|x64.ActiveCfg = Release|x64
+		{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}.Release|x64.Build.0 = Release|x64
+		{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}.Release|x86.ActiveCfg = Release|Win32
+		{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
