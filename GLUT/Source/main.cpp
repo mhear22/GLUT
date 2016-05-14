@@ -1,15 +1,7 @@
-//
-//  main.cpp
-//  OpenGL-Mac
-//
-//  Created by Rosanne Heares on 12/05/2016.
-//  Copyright © 2016 Rosanne Heares. All rights reserved.
-//
-
 #include <iostream>
 #include <thread>
 
-#include <GLFW/glfw3.h>
+#include "header.h"
 
 int main()
 {

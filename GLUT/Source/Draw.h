@@ -1,10 +1,4 @@
-#pragma once
-
-#include <GL/glut.h>
-#include <string>
-#include <time.h>
-#include <random>
-#include <math.h>
+#include "header.h"
 
 class Draw
 {

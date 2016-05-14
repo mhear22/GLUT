@@ -4,27 +4,27 @@ Game::Game()
 {
 	int argc = 0;
 	char** argv = { };
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DEPTH | GLUT_RGBA);
-	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(400,400);
-	glutCreateWindow("window");
-	glutFullScreen();
-	glutKeyboardUpFunc(Keyboard::KeyPress);
-	glutMouseFunc(Mouse::Clicked);
-	glutDisplayFunc(Draw);
+	//glutInit(&argc, argv);
+	//glutInitDisplayMode(GLUT_DEPTH | GLUT_RGBA);
+	//glutInitWindowPosition(100, 100);
+	//glutInitWindowSize(400,400);
+	//glutCreateWindow("window");
+	//glutFullScreen();
+	//glutKeyboardUpFunc(Keyboard::KeyPress);
+	//glutMouseFunc(Mouse::Clicked);
+	//glutDisplayFunc(Draw);
 	
 	//implement
-	glutPassiveMotionFunc(Mouse::Moved);
+	//glutPassiveMotionFunc(Mouse::Moved);
 	
-	glutEntryFunc(Mouse::Entering);
+	//glutEntryFunc(Mouse::Entering);
 	
 	//glutIdleFunc(Draw);
 	glClearColor(0.0f,0.0f,0.0f,1.0f);
 	
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-	glutMainLoop();
+	//glutMainLoop();
 }
 
 
@@ -64,13 +64,13 @@ void Game::Draw()
 	
 	Draw::Text(-1,-1, std::to_string(FPS));
 	t1.join();
-	glutSwapBuffers();
-	glutPostRedisplay();
+	//glutSwapBuffers();
+	//glutPostRedisplay();
 }
 
 void Game::Mouse::Clicked(int button, int state, int x, int y)
 {
-	if (state = GLUT_UP)
+	if (state == 0)
 	{
 	
 	}
@@ -78,7 +78,7 @@ void Game::Mouse::Clicked(int button, int state, int x, int y)
 
 void Game::Mouse::Moved(int x, int y)
 {
-	glutSetCursor(GLUT_CURSOR_NONE);
+	//glutSetCursor(GLUT_CURSOR_NONE);
 }
 
 void Game::Mouse::Entering(int state)
@@ -94,8 +94,8 @@ void Game::Keyboard::KeyPress(unsigned char key, int x, int y)
 	
 	if (key == 13)
 	{
-		glutReshapeWindow(400, 400);
-		glutPositionWindow(0, 0);
+		//glutReshapeWindow(400, 400);
+		//glutPositionWindow(0, 0);
 	}
 
 	if (key == 97)

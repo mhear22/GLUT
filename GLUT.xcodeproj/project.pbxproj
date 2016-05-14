@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08CBF6C91CE4CDB000E7A1C3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08CBF6C81CE4CDB000E7A1C3 /* main.cpp */; };
 		08CBF6D01CE4D02B00E7A1C3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CBF6CF1CE4D02B00E7A1C3 /* OpenGL.framework */; };
 		08CBF6D21CE4D03F00E7A1C3 /* libglfw.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CBF6D11CE4D03F00E7A1C3 /* libglfw.3.1.dylib */; };
+		08F08D8D1CE6F6180073D80B /* Draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F08D881CE6F6180073D80B /* Draw.cpp */; };
+		08F08D8E1CE6F6180073D80B /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F08D8A1CE6F6180073D80B /* Game.cpp */; };
+		08F08D8F1CE6F6180073D80B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08F08D8C1CE6F6180073D80B /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +28,14 @@
 
 /* Begin PBXFileReference section */
 		08CBF6C51CE4CDB000E7A1C3 /* GLUT */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GLUT; sourceTree = BUILT_PRODUCTS_DIR; };
-		08CBF6C81CE4CDB000E7A1C3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		08CBF6CF1CE4D02B00E7A1C3 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		08CBF6D11CE4D03F00E7A1C3 /* libglfw.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.1.dylib; path = ../../../../../opt/local/lib/libglfw.3.1.dylib; sourceTree = "<group>"; };
+		08F08D881CE6F6180073D80B /* Draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Draw.cpp; path = Source/Draw.cpp; sourceTree = "<group>"; };
+		08F08D891CE6F6180073D80B /* Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Draw.h; path = Source/Draw.h; sourceTree = "<group>"; };
+		08F08D8A1CE6F6180073D80B /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = Source/Game.cpp; sourceTree = "<group>"; };
+		08F08D8B1CE6F6180073D80B /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Source/Game.h; sourceTree = "<group>"; };
+		08F08D8C1CE6F6180073D80B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Source/main.cpp; sourceTree = "<group>"; };
+		08F08D901CE6F6910073D80B /* header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = header.h; path = Source/header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +72,12 @@
 		08CBF6C71CE4CDB000E7A1C3 /* GLUT */ = {
 			isa = PBXGroup;
 			children = (
-				08CBF6C81CE4CDB000E7A1C3 /* main.cpp */,
+				08F08D881CE6F6180073D80B /* Draw.cpp */,
+				08F08D891CE6F6180073D80B /* Draw.h */,
+				08F08D8A1CE6F6180073D80B /* Game.cpp */,
+				08F08D8B1CE6F6180073D80B /* Game.h */,
+				08F08D8C1CE6F6180073D80B /* main.cpp */,
+				08F08D901CE6F6910073D80B /* header.h */,
 			);
 			path = GLUT;
 			sourceTree = "<group>";
@@ -125,7 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08CBF6C91CE4CDB000E7A1C3 /* main.cpp in Sources */,
+				08F08D8D1CE6F6180073D80B /* Draw.cpp in Sources */,
+				08F08D8E1CE6F6180073D80B /* Game.cpp in Sources */,
+				08F08D8F1CE6F6180073D80B /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +270,7 @@
 				08CBF6CE1CE4CDB000E7A1C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

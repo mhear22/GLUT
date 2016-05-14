@@ -1,11 +1,5 @@
-#include <GL/glut.h>
-#include <cstdio>
-#include <chrono>
-#include <time.h>
-#include <string>
-#include <thread>
-#include <tuple>
 
+#include "header.h"
 #include "Draw.h"
 
 using namespace std::chrono;
@@ -20,7 +14,10 @@ private:
 
 	class Mouse
 	{
-	public:		void static Clicked(int button, int state, int x, int y);		void static Moved(int x, int y);		void static Entering(int state);
+	public:
+		void static Clicked(int button, int state, int x, int y);
+		void static Moved(int x, int y);
+		void static Entering(int state);
 	};
 
 	class Keyboard

@@ -23,7 +23,7 @@ void Draw::Text(float x, float y, std::string text)
 		{
 			break;
 		}
-		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,text[i]);
+		//glfwBitmapCharacter(GLUT_BITMAP_HELVETICA_18,text[i]);
 	}
 }
 
