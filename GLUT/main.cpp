@@ -12,7 +12,7 @@
 #ifdef __APPLE__
 #include <GLFW/glfw3.h>
 #else
-#include <GL/glfw.h>
+#include <GLFW/glfw3.h>
 #endif
 
 int main()
