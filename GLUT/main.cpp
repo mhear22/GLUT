@@ -9,11 +9,7 @@
 #include <iostream>
 #include <thread>
 
-#ifdef __APPLE__
 #include <GLFW/glfw3.h>
-#else
-#include <GLFW/glfw3.h>
-#endif
 
 int main()
 {
