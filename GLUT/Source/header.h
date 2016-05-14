@@ -6,7 +6,6 @@
 #include <gl\GL.h>
 #endif 
 
-
 #include <cstdio>
 #include <chrono>
 #include <time.h>

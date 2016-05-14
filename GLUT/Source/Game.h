@@ -14,8 +14,8 @@ private:
 	class Mouse
 	{
 	public:
-		void static Clicked(int button, int state, int x, int y);
-		void static Moved(int x, int y);
+		void static Clicked(GLFWwindow* window,int button, int action, int mods);
+		void static Moved(GLFWwindow* window, double x, double y);
 		void static Entering(int state);
 	};
 
@@ -24,6 +24,6 @@ private:
 	public:
 		void static KeyPress(GLFWwindow*,int,int, int, int);
 	private:
-		unsigned char key[255];
+		unsigned char static keys[256];
 	};
 };

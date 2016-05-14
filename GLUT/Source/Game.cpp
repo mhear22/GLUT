@@ -13,6 +13,9 @@ Game::Game()
 	GLFWwindow* w = glfwCreateWindow(mode->width, mode->height, "", NULL, NULL);
 	
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
+	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
+	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
 	
 	glfwMakeContextCurrent(w);
 	
@@ -23,7 +26,9 @@ Game::Game()
 		glfwPollEvents();
 	}
 	glfwTerminate();
-	//glutFullScreen();
+	
+	
+	
 	//glutKeyboardUpFunc(Keyboard::KeyPress);
 	//glutMouseFunc(Mouse::Clicked);
 	//glutDisplayFunc(Draw);
@@ -60,24 +65,47 @@ void Game::Draw()
 	//glutPostRedisplay();
 }
 
-void Game::Mouse::Clicked(int button, int state, int x, int y)
+void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)
 {
-	if (state == 0)
-	{
 	
-	}
 }
 
-void Game::Mouse::Moved(int x, int y)
+void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 {
-	//glutSetCursor(GLUT_CURSOR_NONE);
+	
 }
 
 void Game::Mouse::Entering(int state)
 {
+	
 }
 
 void Game::Keyboard::KeyPress(GLFWwindow* window, int key, int scancode, int actions, int mods)
 {
-	printf("%i,%i,%i,%i", key, scancode, actions, mods);
+	//Game::Keyboard::keys[key] = actions;
+	
+	
+	if(key == 256)
+	{
+		exit(0);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
