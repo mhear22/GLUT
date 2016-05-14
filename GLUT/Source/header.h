@@ -1,8 +1,10 @@
 #include <GLFW/glfw3.h>
 
-
+#ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
-
+#else
+#include <gl\GL.h>
+#endif 
 
 
 #include <cstdio>
