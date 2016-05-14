@@ -6,8 +6,14 @@ Game::Game()
 	{
 		exit(0);
 	}
+	auto x = glfwGetPrimaryMonitor();
+	const GLFWvidmode* mode = glfwGetVideoMode(x);
 	
-	GLFWwindow* w = glfwCreateWindow(400, 400, "", NULL, NULL);
+	
+	GLFWwindow* w = glfwCreateWindow(mode->width, mode->height, "", NULL, NULL);
+	
+	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
+	
 	glfwMakeContextCurrent(w);
 	
 	while (!glfwWindowShouldClose(w))
@@ -71,48 +77,7 @@ void Game::Mouse::Entering(int state)
 {
 }
 
-void Game::Keyboard::KeyPress(unsigned char key, int x, int y)
+void Game::Keyboard::KeyPress(GLFWwindow* window, int key, int scancode, int actions, int mods)
 {
-	if (key == 27)
-	{
-		exit(0);
-	}
-	
-	if (key == 13)
-	{
-		//glutReshapeWindow(400, 400);
-		//glutPositionWindow(0, 0);
-	}
-
-	if (key == 97)
-	{
-		if(i2 < 1)
-		{
-			i2 = i2 + 0.1;
-		}
-
-	}
-
-	if (key == 100)
-	{
-		if (i2 > 0.1)
-		{
-			i2 = i2 - 0.1;
-		}
-	}
-
-	if (key == 119)
-	{
-		if (i < 1)
-		{
-			i = i + 0.1;
-		}
-	}
-	if (key == 115)
-	{
-		if (i > 0.1)
-		{
-			i = i - 0.1;
-		}
-	}
+	printf("%i,%i,%i,%i", key, scancode, actions, mods);
 }

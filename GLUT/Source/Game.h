@@ -22,7 +22,7 @@ private:
 	class Keyboard
 	{
 	public:
-		void static KeyPress(unsigned char key, int x, int y);
+		void static KeyPress(GLFWwindow*,int,int, int, int);
 	private:
 		unsigned char key[255];
 	};
