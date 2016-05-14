@@ -10,7 +10,6 @@ public:
 	Game();
 private:
 	void static Draw();
-	void static CheckFPS();
 
 	class Mouse
 	{

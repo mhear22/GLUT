@@ -2,13 +2,21 @@
 
 Game::Game()
 {
-	int argc = 0;
-	char** argv = { };
-	//glutInit(&argc, argv);
-	//glutInitDisplayMode(GLUT_DEPTH | GLUT_RGBA);
-	//glutInitWindowPosition(100, 100);
-	//glutInitWindowSize(400,400);
-	//glutCreateWindow("window");
+	if(!glfwInit())
+	{
+		exit(0);
+	}
+	
+	GLFWwindow* w = glfwCreateWindow(400, 400, "", NULL, NULL);
+	glfwMakeContextCurrent(w);
+	
+	while (!glfwWindowShouldClose(w))
+	{
+		Game::Draw();
+		glfwSwapBuffers(w);
+		glfwPollEvents();
+	}
+	glfwTerminate();
 	//glutFullScreen();
 	//glutKeyboardUpFunc(Keyboard::KeyPress);
 	//glutMouseFunc(Mouse::Clicked);
@@ -20,7 +28,6 @@ Game::Game()
 	//glutEntryFunc(Mouse::Entering);
 	
 	//glutIdleFunc(Draw);
-	glClearColor(0.0f,0.0f,0.0f,1.0f);
 	
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -28,30 +35,11 @@ Game::Game()
 }
 
 
-static clock_t currentTime = clock_t();
-
-static high_resolution_clock::time_point lastFrame = high_resolution_clock::now();
-static float FPS = 0.0f;
-
-void Game::CheckFPS()
-{
-	//if(clock_t())
-	high_resolution_clock::time_point currentFrame = high_resolution_clock::now();
-	
-	duration<float> delta = duration_cast<duration<float>>(currentFrame - lastFrame);
-
-	
-	FPS	= 1.0/delta.count();
-
-	lastFrame = currentFrame;
-}
-
 float i = 0;
 float i2 = 0;
 
 void Game::Draw()
 {
-	std::thread t1(CheckFPS);
 	//t1.detach();
 
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -62,8 +50,6 @@ void Game::Draw()
 	Draw::TriangleWall();
 
 	
-	Draw::Text(-1,-1, std::to_string(FPS));
-	t1.join();
 	//glutSwapBuffers();
 	//glutPostRedisplay();
 }

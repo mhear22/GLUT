@@ -13,21 +13,6 @@ void Draw::Square(float x, float y, float width, float height)
 	glEnd();
 }
 
-void Draw::Text(float x, float y, std::string text)
-{
-	glColor3f(0, 0, 1);
-	glRasterPos2f(x,y);
-	for (int i = 0; i < text.length() ; i++)
-	{
-		if(text[i] == '.')
-		{
-			break;
-		}
-		//glfwBitmapCharacter(GLUT_BITMAP_HELVETICA_18,text[i]);
-	}
-}
-
-
 static clock_t lastClock = clock() + 1000;
 static float vertex[3][3][2] = {
 									{{-1,-1},{-1,0},{-1,1}},
