@@ -37,7 +37,7 @@ Game::Game()
 void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	Draw::TriangleWall();
+	Draw::TriangleWall(100);
 }
 
 void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)

@@ -17,5 +17,6 @@
 #include <tuple>
 #include <random>
 #include <math.h>
+#include <vector>
 
 #endif

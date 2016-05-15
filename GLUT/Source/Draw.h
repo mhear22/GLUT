@@ -4,6 +4,7 @@ class Draw
 {
 public:
 	void static TriangleWall();
+	void static TriangleWall(int points);
 	void static Hex(float x, float y, float scale);
 	void static Square(float x, float y, float height, float width);
 

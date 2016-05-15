@@ -69,6 +69,42 @@ void Draw::TriangleWall()
 	glEnd();
 }
 
+std::vector<std::vector<std::vector<std::vector<float>>>> TrianglePoints;
+
+void Draw::TriangleWall(int points)
+{
+	for (int i = 0; i < points; i++)
+	{
+		
+	}
+
+
+
+
+	TrianglePoints = std::vector<std::vector<std::vector<std::vector<float>>>>();
+	TrianglePoints =	{
+							{ { { -1.0, 1.0 } },{ { 0.0, 1.0 } },{ { 1.0, 1.0 } } },
+							{ { { -1.0, 0.0 } },{ { 0.0, 0.0 } },{ { 1.0, 0.0 } } },
+							{ { { -1.0, -1.0 } },{ { 0.0, -1.0 } },{ { 1.0, -1.0 } } },
+						};
+
+	//iterator
+	glBegin(GL_POINTS);
+
+	for(int i = 0; i < TrianglePoints.size(); i++)
+	{
+		for(int t = 0; t < TrianglePoints[i].size(); t++)
+		{
+			for (int e = 0; e < TrianglePoints[i][t].size(); e++)
+			{
+				glVertex2f(TrianglePoints[i][t][e][0], TrianglePoints[i][t][e][1]);
+			}
+		}
+	}
+	
+	glEnd();
+}
+
 float Draw::RandomFloat(float low, float high)
 {
 	float f = (float) rand() / (float)RAND_MAX;
