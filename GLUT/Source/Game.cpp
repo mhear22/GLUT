@@ -9,9 +9,10 @@ Game::Game()
 	auto x = glfwGetPrimaryMonitor();
 	const GLFWvidmode* mode = glfwGetVideoMode(x);
 	
+	GLFWwindow* w = glfwCreateWindow(mode->width, mode->height, "", glfwGetPrimaryMonitor(), NULL);
 	
-	GLFWwindow* w = glfwCreateWindow(mode->width, mode->height, "", NULL, NULL);
 	
+
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
 	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
