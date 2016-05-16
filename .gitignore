@@ -39,6 +39,7 @@
 *.exe
 *.out
 *.app
+a.out
 -
 -
 -### VisualStudioCode ###
