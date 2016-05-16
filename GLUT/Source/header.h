@@ -1,3 +1,6 @@
+#ifndef __header_h__
+#define __header_h__
+
 #include <GLFW/glfw3.h>
 
 #ifdef __APPLE__
@@ -14,3 +17,6 @@
 #include <tuple>
 #include <random>
 #include <math.h>
+#include <vector>
+
+#endif

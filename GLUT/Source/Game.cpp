@@ -8,88 +8,67 @@ Game::Game()
 	}
 	auto x = glfwGetPrimaryMonitor();
 	const GLFWvidmode* mode = glfwGetVideoMode(x);
+	int count;
+	GLFWmonitor** monitors = glfwGetMonitors(&count);
 	
-	GLFWwindow* w = glfwCreateWindow(mode->width, mode->height, "", glfwGetPrimaryMonitor(), NULL);
-	
-	
-
-	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
-	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
-	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
+	GLFWwindow* w = glfwCreateWindow(mode->width, mode->height, "", monitors[0], NULL);
 	
 	glfwMakeContextCurrent(w);
 	
+	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
+	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
+	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
+	
+	glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+	
+	glPointSize(10);
+
 	while (!glfwWindowShouldClose(w))
 	{
 		Game::Draw();
 		glfwSwapBuffers(w);
 		glfwPollEvents();
 	}
+
 	glfwTerminate();
-	
-	
-	
-	//glutKeyboardUpFunc(Keyboard::KeyPress);
-	//glutMouseFunc(Mouse::Clicked);
-	//glutDisplayFunc(Draw);
-	
-	//implement
-	//glutPassiveMotionFunc(Mouse::Moved);
-	
-	//glutEntryFunc(Mouse::Entering);
-	
-	//glutIdleFunc(Draw);
-	
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
-	//glutMainLoop();
 }
-
-
-float i = 0;
-float i2 = 0;
 
 void Game::Draw()
 {
-	//t1.detach();
-
 	glClear(GL_COLOR_BUFFER_BIT);
-
-	glColor3f(i,i2,0.5);
-	Draw::Square(-1,-1,2,2);
-
-	Draw::TriangleWall();
-
-	
-	//glutSwapBuffers();
-	//glutPostRedisplay();
+	Draw::TriangleWall(100);
 }
 
 void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)
 {
-	
+	printf("clicked");
 }
 
 void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 {
-	
+	if(x == 0 && x == 0)
+	{
+		return;
+	}
+	printf("moved %f, %f\n", x,y);
+	glfwSetCursorPos(window, 0,0);
 }
 
-void Game::Mouse::Entering(int state)
-{
-	
-}
 
 void Game::Keyboard::KeyPress(GLFWwindow* window, int key, int scancode, int actions, int mods)
 {
 	//Game::Keyboard::keys[key] = actions;
-	
-	
+
 	if(key == 256)
 	{
 		exit(0);
 	}
+	else if (key == 96)
+	{
+		printf("Break");
+	}
+
 }
 
 
