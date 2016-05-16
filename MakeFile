@@ -1,8 +1,9 @@
 CC=g++
 SRC=GLUT/Source/
 OBJ=$(SRC)*.cpp
-CFLG= -std=c++11
-LIBS= -lpthread -lGL -lGLU -lglut -lX11
+CFLG= -std=c++11 -L /lib64
+LIBS= -lGLEW -lglfw3 -lGL -lX11 -lXi -lXrandr -lXxf86vm -lXinerama -lXcursor -lrt -lm -pthread -ldl
+
 
 all: Main
 	

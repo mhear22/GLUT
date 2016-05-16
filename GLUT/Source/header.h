@@ -2,7 +2,7 @@
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
-#else
+#elif __Windows__
 #include <gl\GL.h>
 #endif 
 
