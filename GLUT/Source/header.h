@@ -5,7 +5,7 @@
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
-#elif __Windows__
+#elif _WIN64
 #include <gl\GL.h>
 #endif 
 
