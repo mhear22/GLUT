@@ -9,7 +9,6 @@
 #include <OpenGL/OpenGL.h>
 #elif _WIN64
 #include <gl\GL.h>
-
 #endif 
 
 #include <cstdio>

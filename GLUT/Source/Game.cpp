@@ -38,6 +38,7 @@ void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	Draw::DebugWall3D();
+	Draw::Camera();
 	//Draw::TriangleWall(100);
 }
 
@@ -53,7 +54,6 @@ void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 		return;
 	}
 	printf("moved %f, %f\n", x,y);
-	
 	glfwSetCursorPos(window, 0,0);
 }
 

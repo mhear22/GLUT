@@ -9,6 +9,7 @@ public:
 	void static DebugWall3D();
 	void static Hex(float x, float y, float scale);
 	void static Square(float x, float y, float height, float width);
+	void static Camera();
 
 private:
 	float static RandomFloat(float low, float high);

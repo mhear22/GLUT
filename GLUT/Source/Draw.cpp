@@ -165,6 +165,12 @@ float Draw::RandomFloat(float low, float high)
 	return (f * (high - low)) + low;
 }
 
+
+void Draw::Camera()
+{
+	
+}
+
 void Draw::Hex(float x, float y, float scale)
 {
 	glBegin(GL_POLYGON);
