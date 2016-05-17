@@ -6,6 +6,16 @@ Game::Game()
 	{
 		exit(0);
 	}
+
+	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+	
+	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
+
 	auto x = glfwGetPrimaryMonitor();
 	const GLFWvidmode* mode = glfwGetVideoMode(x);
 	int count;
@@ -14,15 +24,22 @@ Game::Game()
 	GLFWwindow* w = glfwCreateWindow(mode->width, mode->height, "", monitors[0], NULL);
 	
 	glfwMakeContextCurrent(w);
-	
+
+	std::vector<Shader> shaders;
+
+	shaders.push_back(Shader::ShaderFromFile("Source\\GLSL\\VertexShader.glsl", GL_VERTEX_SHADER));
+
+
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
 	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
 	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
 	
 	glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
-	
+
+	glHint(GL_POINT_SMOOTH_HINT, GL_FASTEST);
 	glPointSize(10);
+
 
 	while (!glfwWindowShouldClose(w))
 	{
@@ -61,8 +78,6 @@ void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 
 void Game::Keyboard::KeyPress(GLFWwindow* window, int key, int scancode, int actions, int mods)
 {
-	//Game::Keyboard::keys[key] = actions;
-
 	if(key == 256)
 	{
 		exit(0);
@@ -73,22 +88,3 @@ void Game::Keyboard::KeyPress(GLFWwindow* window, int key, int scancode, int act
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

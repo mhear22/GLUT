@@ -22,14 +22,22 @@
     <ClCompile Include="Source\Draw.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Draw.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\header.h" />
+    <ClInclude Include="Source\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Source\GLSL\FragmentShader.glsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </None>
+    <None Include="Source\GLSL\VertexShader.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}</ProjectGuid>
@@ -83,29 +91,30 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
-    <SourcePath>C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
-    <LibraryPath>C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
+    <LibraryPath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
-    <SourcePath>C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
-    <LibraryPath>C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
+    <LibraryPath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
-    <SourcePath>C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
-    <LibraryPath>C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
+    <LibraryPath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
-    <SourcePath>C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
-    <LibraryPath>C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
+    <LibraryPath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -118,6 +127,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>GLEW_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -131,6 +141,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -146,6 +157,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -157,11 +169,15 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\glm.0.9.7.1\build\native\glm.targets" Condition="Exists('..\packages\glm.0.9.7.1\build\native\glm.targets')" />
+    <Import Project="..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets" Condition="Exists('..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets')" />
+    <Import Project="..\packages\glew.1.9.0.1\build\native\glew.targets" Condition="Exists('..\packages\glew.1.9.0.1\build\native\glew.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\glm.0.9.7.1\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glm.0.9.7.1\build\native\glm.targets'))" />
+    <Error Condition="!Exists('..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\glew.1.9.0.1\build\native\glew.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glew.1.9.0.1\build\native\glew.targets'))" />
   </Target>
 </Project>
