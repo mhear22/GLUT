@@ -38,6 +38,7 @@ void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	Draw::DebugWall3D();
+	Draw::Camera();
 	// = 0 * 0 * 0;
 	//Draw::TriangleWall(100);
 }
