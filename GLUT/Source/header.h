@@ -3,10 +3,13 @@
 
 #include <GLFW/glfw3.h>
 
+
+
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
 #elif _WIN64
 #include <gl\GL.h>
+
 #endif 
 
 #include <cstdio>

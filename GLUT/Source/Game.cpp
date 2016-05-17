@@ -37,7 +37,8 @@ Game::Game()
 void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	Draw::TriangleWall(100);
+	Draw::DebugWall3D();
+	//Draw::TriangleWall(100);
 }
 
 void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)
@@ -47,11 +48,12 @@ void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)
 
 void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 {
-	if(x == 0 && x == 0)
+	if(x == 0 && y == 0)
 	{
 		return;
 	}
 	printf("moved %f, %f\n", x,y);
+	
 	glfwSetCursorPos(window, 0,0);
 }
 

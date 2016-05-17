@@ -73,22 +73,12 @@ std::vector<std::vector<std::vector<std::vector<float>>>> TrianglePoints;
 
 void Draw::TriangleWall(int points)
 {
-	for (int i = 0; i < points; i++)
-	{
-		
-	}
-
-
-
-
 	TrianglePoints = std::vector<std::vector<std::vector<std::vector<float>>>>();
 	TrianglePoints =	{
 							{ { { -1.0, 1.0 } },{ { 0.0, 1.0 } },{ { 1.0, 1.0 } } },
 							{ { { -1.0, 0.0 } },{ { 0.0, 0.0 } },{ { 1.0, 0.0 } } },
 							{ { { -1.0, -1.0 } },{ { 0.0, -1.0 } },{ { 1.0, -1.0 } } },
 						};
-
-	//iterator
 	glBegin(GL_POINTS);
 
 	for(int i = 0; i < TrianglePoints.size(); i++)
@@ -102,6 +92,69 @@ void Draw::TriangleWall(int points)
 		}
 	}
 	
+	glEnd();
+}
+
+void Draw::DebugWall2D()
+{
+	std::vector<std::vector<std::vector<std::vector<float>>>> Points = std::vector<std::vector<std::vector<std::vector<float>>>>();
+	Points = {
+		{ { { -1.0, 1.0 } },{ { 0.0, 1.0 } },{ { 1.0, 1.0 } } },
+		{ { { -1.0, 0.0 } },{ { 0.0, 0.0 } },{ { 1.0, 0.0 } } },
+		{ { { -1.0, -1.0 } },{ { 0.0, -1.0 } },{ { 1.0, -1.0 } } },
+	};
+	glBegin(GL_POINTS);
+
+	for (int i = 0; i < Points.size(); i++)
+	{
+		for (int t = 0; t < Points[i].size(); t++)
+		{
+			for (int e = 0; e < Points[i][t].size(); e++)
+			{
+				glVertex2f(Points[i][t][e][0], Points[i][t][e][1]);
+			}
+		}
+	}
+
+	glEnd();
+}
+
+void Draw::DebugWall3D()
+{
+	std::vector<std::vector<std::vector<std::vector<float>>>> Points = std::vector<std::vector<std::vector<std::vector<float>>>>();
+	Points = 
+	{
+		{
+			{
+				{ -1.0,0.0,-1.0 },
+				{ 0.0,0.0,-1.0 },
+				{ 1.0,0.0,-1.0 }
+			},
+			{
+				{ -1.0,1.0,-1.0 },
+				{ 0.0,1.0,-1.0 },
+				{ 1.0,1.0,-1.0 }
+			},
+			{
+				{ -1.0,-1.0,-1.0 },
+				{ 0.0,-1.0,-1.0 },
+				{ 1.0,-1.0,-1.0 }
+			}
+		}
+	};
+
+
+	glBegin(GL_POINTS);
+	for (int i = 0; i < Points.size(); i++)
+	{
+		for (int t = 0; t < Points[i].size(); t++)
+		{
+			for (int e = 0; e < Points[i][t].size(); e++)
+			{
+				glVertex3f(Points[i][t][e][0], Points[i][t][e][1], Points[i][t][e][2]);
+			}
+		}
+	}
 	glEnd();
 }
 
