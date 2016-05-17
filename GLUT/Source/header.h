@@ -2,16 +2,13 @@
 #define __header_h__
 
 #include <GLFW/glfw3.h>
-
+#include <glm/glm.hpp>
 
 //get glew
-//get glm
-
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
 //get glew
-//get glm
 #elif _WIN64
 #include <gl\GL.h>
 #endif 
