@@ -54,7 +54,6 @@ void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 		return;
 	}
 	printf("moved %f, %f\n", x,y);
-	
 	glfwSetCursorPos(window, 0,0);
 }
 
