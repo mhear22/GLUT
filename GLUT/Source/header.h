@@ -4,9 +4,14 @@
 #include <GLFW/glfw3.h>
 
 
+//get glew
+//get glm
+
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
+//get glew
+//get glm
 #elif _WIN64
 #include <gl\GL.h>
 
