@@ -52,5 +52,15 @@ Shader Shader::ShaderFromFile(const std::string & filePath, GLenum shaderType)
 
 	buffer << f.rdbuf();
 
-	return Shader(buffer.str(),shaderType);
+	std::string s(buffer.str());
+	
+	Shader shader = Shader(s, shaderType);
+	
+	return shader;
 }
+
+
+
+
+
+
