@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0806E1891CEC7CB500F4E58B /* GLSL in CopyFiles */ = {isa = PBXBuildFile; fileRef = 087386131CEB50E300817BE2 /* GLSL */; };
 		087386161CEB535300817BE2 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087386141CEB535300817BE2 /* Shader.cpp */; };
 		08CBF6D01CE4D02B00E7A1C3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CBF6CF1CE4D02B00E7A1C3 /* OpenGL.framework */; };
 		08CBF6D21CE4D03F00E7A1C3 /* libglfw.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08CBF6D11CE4D03F00E7A1C3 /* libglfw.3.1.dylib */; };
@@ -18,12 +19,13 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		08CBF6C31CE4CDB000E7A1C3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
 			files = (
+				0806E1891CEC7CB500F4E58B /* GLSL in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 

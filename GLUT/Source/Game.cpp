@@ -7,11 +7,11 @@ Game::Game()
 		exit(0);
 	}
 
-	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
@@ -27,7 +27,9 @@ Game::Game()
 
 	std::vector<Shader> shaders;
 
-	shaders.push_back(Shader::ShaderFromFile("Source\\GLSL\\VertexShader.glsl", GL_VERTEX_SHADER));
+	printf("%s\n",system("pwd"));
+	
+	shaders.push_back(Shader::ShaderFromFile("GLSL\\VertexShader.glsl", GL_VERTEX_SHADER));
 
 
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
