@@ -8,7 +8,7 @@ Game::Game()
 	}
 
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-
+	
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
@@ -26,10 +26,10 @@ Game::Game()
 	glfwMakeContextCurrent(w);
 
 	std::vector<Shader> shaders;
-
-	printf("%s\n",system("pwd"));
 	
-	shaders.push_back(Shader::ShaderFromFile("GLSL\\VertexShader.glsl", GL_VERTEX_SHADER));
+	//shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
+	//shaders.push_back(Shader(DefaultFragmentShader, GL_FRAGMENT_SHADER));
+
 
 
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);

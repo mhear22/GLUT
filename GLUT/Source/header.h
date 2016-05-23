@@ -3,6 +3,8 @@
 
 #define GLEW_STATIC
 
+#pragma comment(lib, "glew.lib")
+
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
 #elif _WIN64

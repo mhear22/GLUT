@@ -47,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Source\GLSL\VertexShader.glsl">
+    <None Include="Source\FragmentShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="Source\GLSL\FragmentShader.glsl">
+    <None Include="Source\VertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
