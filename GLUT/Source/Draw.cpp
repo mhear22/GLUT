@@ -97,26 +97,32 @@ void Draw::TriangleWall(int points)
 
 void Draw::DebugWall2D()
 {
-	std::vector<std::vector<std::vector<std::vector<float>>>> Points = std::vector<std::vector<std::vector<std::vector<float>>>>();
-	Points = {
-		{ { { -1.0, 1.0 } },{ { 0.0, 1.0 } },{ { 1.0, 1.0 } } },
-		{ { { -1.0, 0.0 } },{ { 0.0, 0.0 } },{ { 1.0, 0.0 } } },
-		{ { { -1.0, -1.0 } },{ { 0.0, -1.0 } },{ { 1.0, -1.0 } } },
-	};
-	glBegin(GL_POINTS);
-
-	for (int i = 0; i < Points.size(); i++)
+	GLuint VAO = 0;
+	GLuint VBO = 0;
+	
+	//VAO
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
+	
+	
+	//VBO
+	glGenBuffers(1,&VBO);
+	glBindBuffer(GL_ARRAY_BUFFER,VBO);
+	
+	GLfloat Vertex[]
 	{
-		for (int t = 0; t < Points[i].size(); t++)
-		{
-			for (int e = 0; e < Points[i][t].size(); e++)
-			{
-				glVertex2f(Points[i][t][e][0], Points[i][t][e][1]);
-			}
-		}
-	}
-
-	glEnd();
+		0.0,0.0,0.0,
+		0.0,0.0,0.0,
+		0.0,0.0,0.0,
+	};
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
+	
+	//glEnableVertexAttribArray(gProgram->attrib("vert"));
+	//glVertexAttribPointer(gProgram->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+	
 }
 
 void Draw::DebugWall3D()

@@ -11,6 +11,7 @@ public:
 	void static Square(float x, float y, float height, float width);
 	void static Camera();
 
+	GLint static getAttrib(GLchar* glChar);
 private:
 	float static RandomFloat(float low, float high);
 };

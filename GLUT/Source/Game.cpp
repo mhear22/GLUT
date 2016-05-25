@@ -29,9 +29,7 @@ Game::Game()
 	
 	shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
 	shaders.push_back(Shader(DefaultFragmentShader, GL_FRAGMENT_SHADER));
-
-
-
+	
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
 	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
@@ -56,8 +54,8 @@ Game::Game()
 void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	Draw::DebugWall3D();
-	Draw::Camera();
+	Draw::DebugWall2D();
+	//Draw::Camera();
 	// = 0 * 0 * 0;
 	//Draw::TriangleWall(100);
 }
