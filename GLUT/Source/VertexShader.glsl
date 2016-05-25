@@ -1,10 +1,10 @@
 R"(
-	#version 410
+	#version 150
 	
 	in vec3 vect;
 	
 	void main()
 	{
-		gl_position = vec4(vert, 1);
+		gl_Position = vec4(vect, 1);
 	}
 )";

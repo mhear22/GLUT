@@ -27,8 +27,8 @@ Game::Game()
 
 	std::vector<Shader> shaders;
 	
-	//shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
-	//shaders.push_back(Shader(DefaultFragmentShader, GL_FRAGMENT_SHADER));
+	shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
+	shaders.push_back(Shader(DefaultFragmentShader, GL_FRAGMENT_SHADER));
 
 
 
