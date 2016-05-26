@@ -39,8 +39,19 @@ Game::Game()
 
 	glHint(GL_POINT_SMOOTH_HINT, GL_FASTEST);
 	glPointSize(10);
-
-
+	
+	Program = glCreateProgram();
+	
+	for (int i = 0; i < shaders.size(); i++)
+	{
+		glAttachShader(Program, shaders[i].object());
+	}
+	
+	glLinkProgram(Program);
+	
+	
+	//drawTool = new DrawTool(Program);
+	
 	while (!glfwWindowShouldClose(w))
 	{
 		Game::Draw();
@@ -54,7 +65,9 @@ Game::Game()
 void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	Draw::DebugWall2D();
+	
+	//draw->DebugWall2D();
+	//Draw::DebugWall2D();
 	//Draw::Camera();
 	// = 0 * 0 * 0;
 	//Draw::TriangleWall(100);

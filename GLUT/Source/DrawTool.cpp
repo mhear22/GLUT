@@ -1,6 +1,11 @@
-#include "Draw.h"
+#include "DrawTool.h"
 
-void Draw::Square(float x, float y, float width, float height)
+DrawTool::DrawTool(GLuint program)
+{
+	Program = program;
+}
+
+void DrawTool::Square(float x, float y, float width, float height)
 {
 	glBegin(GL_TRIANGLES);
 	glVertex2f(x, y);
@@ -21,7 +26,7 @@ static float vertex[3][3][2] = {
 								};
 static float centre[2] = {0,0};
 
-void Draw::TriangleWall()
+void DrawTool::TriangleWall()
 {
 	if(lastClock <= clock())
 	{
@@ -71,7 +76,7 @@ void Draw::TriangleWall()
 
 std::vector<std::vector<std::vector<std::vector<float>>>> TrianglePoints;
 
-void Draw::TriangleWall(int points)
+void DrawTool::TriangleWall(int points)
 {
 	TrianglePoints = std::vector<std::vector<std::vector<std::vector<float>>>>();
 	TrianglePoints =	{
@@ -95,7 +100,7 @@ void Draw::TriangleWall(int points)
 	glEnd();
 }
 
-void Draw::DebugWall2D()
+void DrawTool::DebugWall2D()
 {
 	GLuint VAO = 0;
 	GLuint VBO = 0;
@@ -111,13 +116,13 @@ void Draw::DebugWall2D()
 	
 	GLfloat Vertex[]
 	{
-		0.0,0.0,0.0,
-		0.0,0.0,0.0,
-		0.0,0.0,0.0,
+		0.0f, 0.8f, 0.0f,
+		-0.8f,-0.8f, 0.0f,
+		0.8f,-0.8f, 0.0f,
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
 	
-	//glEnableVertexAttribArray(gProgram->attrib("vert"));
+	glEnableVertexAttribArray(GetAttrib("vert"));
 	//glVertexAttribPointer(gProgram->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -125,7 +130,17 @@ void Draw::DebugWall2D()
 	
 }
 
-void Draw::DebugWall3D()
+GLint DrawTool::GetAttrib(GLchar* glChar)
+{
+	
+	return glGetAttribLocation(Program, glChar);
+}
+
+
+
+
+
+void DrawTool::DebugWall3D()
 {
 	std::vector<std::vector<std::vector<std::vector<float>>>> Points = std::vector<std::vector<std::vector<std::vector<float>>>>();
 	Points = 
@@ -164,7 +179,7 @@ void Draw::DebugWall3D()
 	glEnd();
 }
 
-float Draw::RandomFloat(float low, float high)
+float DrawTool::RandomFloat(float low, float high)
 {
 	float f = (float) rand() / (float)RAND_MAX;
 
@@ -172,12 +187,12 @@ float Draw::RandomFloat(float low, float high)
 }
 
 
-void Draw::Camera()
+void DrawTool::Camera()
 {
 	
 }
 
-void Draw::Hex(float x, float y, float scale)
+void DrawTool::Hex(float x, float y, float scale)
 {
 	glBegin(GL_POLYGON);
 	glEnd();

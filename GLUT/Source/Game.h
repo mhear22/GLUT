@@ -1,6 +1,6 @@
 
 #include "header.h"
-#include "Draw.h"
+#include "DrawTool.h"
 #include "Shader.h"
 
 using namespace std::chrono;
@@ -9,9 +9,11 @@ class Game
 {
 public:
 	Game();
+	GLuint Program;
 private:
 	void static Draw();
 
+	static DrawTool* drawTool;
 	class Mouse
 	{
 	public:

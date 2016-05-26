@@ -59,6 +59,10 @@ Shader Shader::ShaderFromFile(const std::string & filePath, GLenum shaderType)
 	return shader;
 }
 
+GLuint Shader::object(){
+	return _object;
+}
+
 
 
 

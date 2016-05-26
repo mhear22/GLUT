@@ -14,8 +14,7 @@ class Shader
 public:
 	Shader(std::string &sourceCode, GLenum shaderType);
 	static Shader ShaderFromFile(const std::string& filePath, GLenum shaderType);
-
-
+	GLuint object();
 
 private:
 	GLuint _object;
