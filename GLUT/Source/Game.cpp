@@ -50,8 +50,9 @@ Game::Game()
 	glLinkProgram(Program);
 	
 	
-	//drawTool = new DrawTool(Program);
+	drawTool = new DrawTool(Program);
 	
+	drawTool->LoadDebugWall2D();
 	while (!glfwWindowShouldClose(w))
 	{
 		Game::Draw();
@@ -66,7 +67,7 @@ void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	//draw->DebugWall2D();
+	drawTool->DebugWall2D();
 	//Draw::DebugWall2D();
 	//Draw::Camera();
 	// = 0 * 0 * 0;

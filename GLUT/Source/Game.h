@@ -11,9 +11,10 @@ public:
 	Game();
 	GLuint Program;
 private:
-	void static Draw();
+	void Draw();
+	
+	DrawTool* drawTool;
 
-	static DrawTool* drawTool;
 	class Mouse
 	{
 	public:

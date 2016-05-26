@@ -100,10 +100,10 @@ void DrawTool::TriangleWall(int points)
 	glEnd();
 }
 
-void DrawTool::DebugWall2D()
+void DrawTool::LoadDebugWall2D()
 {
-	GLuint VAO = 0;
-	GLuint VBO = 0;
+	VAO = 0;
+	VBO = 0;
 	
 	//VAO
 	glGenVertexArrays(1, &VAO);
@@ -116,23 +116,32 @@ void DrawTool::DebugWall2D()
 	
 	GLfloat Vertex[]
 	{
-		0.0f, 0.8f, 0.0f,
-		-0.8f,-0.8f, 0.0f,
-		0.8f,-0.8f, 0.0f,
+		0.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 0.0f,
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
 	
 	glEnableVertexAttribArray(GetAttrib("vert"));
-	//glVertexAttribPointer(gProgram->attrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	glVertexAttribPointer(GetAttrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-	
 }
+
+void DrawTool::DebugWall2D()
+{
+	glUseProgram(Program);
+	glBindVertexArray(VAO);
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glBindVertexArray(0);
+	glUseProgram(0);
+}
+
+
 
 GLint DrawTool::GetAttrib(GLchar* glChar)
 {
-	
 	return glGetAttribLocation(Program, glChar);
 }
 
