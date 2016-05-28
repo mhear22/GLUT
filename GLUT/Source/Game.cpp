@@ -16,14 +16,35 @@ Game::Game()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
 
-	auto x = glfwGetPrimaryMonitor();
-	const GLFWvidmode* mode = glfwGetVideoMode(x);
-	int count;
-	GLFWmonitor** monitors = glfwGetMonitors(&count);
+	bool FULLSCREEN = false;
+
+	GLFWwindow* w;
+	if (FULLSCREEN) 
+	{
+		GLFWmonitor* x = glfwGetPrimaryMonitor();
+		const GLFWvidmode* mode = glfwGetVideoMode(x);
+		int count;
+		GLFWmonitor** monitors = glfwGetMonitors(&count);
+		
+		w = glfwCreateWindow(mode->width, mode->height, "", monitors[0], NULL);
+	}
+	else
+	{
+		int width = 640;
+		int height = 480;
+		w = glfwCreateWindow(width, height, "", NULL, NULL);
+	}
+
 	
-	GLFWwindow* w = glfwCreateWindow(mode->width, mode->height, "", monitors[0], NULL);
+
+
 	
 	glfwMakeContextCurrent(w);
+
+	if (!GLEW_VERSION_4_1) 
+	{
+		0 == 0;
+	}
 
 	std::vector<Shader> shaders;
 	
