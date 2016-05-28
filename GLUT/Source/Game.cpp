@@ -6,7 +6,7 @@ Game::Game()
 	{
 		exit(0);
 	}
-
+	
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -15,11 +15,12 @@ Game::Game()
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-
+	
+	
 	bool FULLSCREEN = false;
 
 	GLFWwindow* w;
-	if (FULLSCREEN) 
+	if (FULLSCREEN)
 	{
 		GLFWmonitor* x = glfwGetPrimaryMonitor();
 		const GLFWvidmode* mode = glfwGetVideoMode(x);
@@ -35,17 +36,11 @@ Game::Game()
 		w = glfwCreateWindow(width, height, "", NULL, NULL);
 	}
 
-	
-
-
-	
 	glfwMakeContextCurrent(w);
-
-	if (!GLEW_VERSION_4_1) 
-	{
-		0 == 0;
-	}
-
+	
+	auto ver = glGetString(GL_VERSION);
+	printf("%s \n", ver);
+	
 	std::vector<Shader> shaders;
 	
 	shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
@@ -56,11 +51,8 @@ Game::Game()
 	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
 	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
 	
-	glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_TRIANGLES);
 
-	glHint(GL_POINT_SMOOTH_HINT, GL_FASTEST);
-	glPointSize(10);
-	
 	Program = glCreateProgram();
 	
 	for (int i = 0; i < shaders.size(); i++)
@@ -68,12 +60,15 @@ Game::Game()
 		glAttachShader(Program, shaders[i].object());
 	}
 	
+	glBindAttribLocation(Program, 1, "vert");
+	
 	glLinkProgram(Program);
 	
 	
 	drawTool = new DrawTool(Program);
 	
 	drawTool->LoadDebugWall2D();
+	
 	while (!glfwWindowShouldClose(w))
 	{
 		Game::Draw();

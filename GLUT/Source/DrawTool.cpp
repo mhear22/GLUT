@@ -3,6 +3,8 @@
 DrawTool::DrawTool(GLuint program)
 {
 	Program = program;
+	
+	
 }
 
 void DrawTool::Square(float x, float y, float width, float height)
@@ -116,9 +118,9 @@ void DrawTool::LoadDebugWall2D()
 	
 	GLfloat Vertex[]
 	{
-		0.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 0.0f,
+		0.0f, 0.8f, 0.0f,
+		-0.8f,-0.8f, 0.0f,
+		0.8f,-0.8f, 0.0f,
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
 	
@@ -142,7 +144,12 @@ void DrawTool::DebugWall2D()
 
 GLint DrawTool::GetAttrib(GLchar* glChar)
 {
-	return glGetAttribLocation(Program, glChar);
+	auto x = glGetAttribLocation(Program, glChar);
+	if(x == -1 || !x)
+	{
+		throw std::runtime_error("Could not find attribute");
+	}
+	return x;
 }
 
 
