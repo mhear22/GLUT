@@ -8,13 +8,13 @@
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
 #include <OpenGL/gl3.h>
-#elif _WIN64
-#include <GL\glew.h>
-#include <GL\GL.h>
-#endif 
+#else
+#include <GL/glew.h>
+#include <GL/gl.h>
+#endif
 
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
+//#include <glm/glm.hpp>
 
 #include <cstdio>
 #include <chrono>
@@ -26,7 +26,7 @@
 #include <math.h>
 #include <vector>
 #include <iostream>
-#include <fstream>
+//#include <fstream>
 #include <sstream>
 
 #endif
