@@ -39,27 +39,6 @@ Shader::Shader(std::string & sourceCode, GLenum shaderType)
 	*_refCount = 1;
 }
 
-Shader Shader::ShaderFromFile(const std::string & filePath, GLenum shaderType)
-{
-	std::ifstream f;
-	f.open(filePath, std::ios::in | std::ios::binary);
-
-	if (!(f.is_open()))
-	{
-		throw std::runtime_error(std::string("Failed to open file: ") + filePath);
-	}
-
-	std::stringstream buffer;
-
-	buffer << f.rdbuf();
-
-	std::string s(buffer.str());
-	
-	Shader shader = Shader(s, shaderType);
-	
-	return shader;
-}
-
 GLuint Shader::object(){
 	return _object;
 }
