@@ -6,7 +6,7 @@ Game::Game()
 	{
 		exit(0);
 	}
-	
+
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -41,6 +41,15 @@ Game::Game()
 	auto ver = glGetString(GL_VERSION);
 	printf("%s \n", ver);
 	
+#ifdef _WIN64
+	glewExperimental = GL_TRUE;
+	GLenum err = glewInit();
+	if (err != GLEW_OK)
+	{
+		printf("%s \n", glewGetErrorString(err));
+	}
+#endif
+
 	std::vector<Shader> shaders;
 	
 	shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));

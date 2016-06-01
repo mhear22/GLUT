@@ -5,7 +5,13 @@ Shader::Shader(std::string & sourceCode, GLenum shaderType)
 	_object(0),
 	_refCount(NULL)
 {
-	_object = glCreateShader(shaderType);
+	try 
+	{
+		_object = glCreateShader(shaderType);
+	}
+	catch (std::string s) {
+		printf("%s \n", s);
+	}
 	if (_object == 0)
 	{
 		throw std::runtime_error("Could not into shader");
