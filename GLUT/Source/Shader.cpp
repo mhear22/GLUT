@@ -5,7 +5,6 @@ Shader::Shader(std::string & sourceCode, GLenum shaderType)
 	_object(0),
 	_refCount(NULL)
 {
-
 	_object = glCreateShader(shaderType);
 	if (_object == 0)
 	{

@@ -14,8 +14,6 @@ Game::Game()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-
-	
 	
 	bool FULLSCREEN = false;
 
@@ -41,15 +39,18 @@ Game::Game()
 	auto ver = glGetString(GL_VERSION);
 	printf("%s \n", ver);
 	
-#ifdef _WIN64
+#ifdef __APPLE__
+#else
 	glewExperimental = GL_TRUE;
 	GLenum err = glewInit();
 	if (err != GLEW_OK)
 	{
 		printf("%s \n", glewGetErrorString(err));
+		exit(0);
 	}
 #endif
 
+	printf("Opened Shader");
 	std::vector<Shader> shaders;
 	
 	shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
