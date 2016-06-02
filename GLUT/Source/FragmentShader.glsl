@@ -5,7 +5,6 @@ R"(
 	
 	void main()
 	{
-		
 		FinalColour = vec4(1.0, 1.0, 1.0, 1.0);
 	}
 	

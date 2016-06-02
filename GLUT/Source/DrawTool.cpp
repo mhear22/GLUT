@@ -3,8 +3,6 @@
 DrawTool::DrawTool(GLuint program)
 {
 	Program = program;
-	
-	
 }
 
 void DrawTool::Square(float x, float y, float width, float height)
@@ -118,9 +116,13 @@ void DrawTool::LoadDebugWall2D()
 	
 	GLfloat Vertex[]
 	{
-		0.0f, 0.8f, 0.0f,
+		-0.8f, 0.8f, 0.0f,
 		-0.8f,-0.8f, 0.0f,
-		0.8f,-0.8f, 0.0f,
+		 0.8f,-0.8f, 0.0f,
+
+		-0.8f, 0.8f, 0.0f,
+		 0.8f,-0.8f, 0.0f,
+		 0.8f, 0.8f, 0.0f,
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
 	
@@ -135,7 +137,7 @@ void DrawTool::DebugWall2D()
 {
 	glUseProgram(Program);
 	glBindVertexArray(VAO);
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glBindVertexArray(0);
 	glUseProgram(0);
 }

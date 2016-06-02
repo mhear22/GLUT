@@ -56,11 +56,6 @@ Game::Game()
 	shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
 	shaders.push_back(Shader(DefaultFragmentShader, GL_FRAGMENT_SHADER));
 	
-	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
-	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
-	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
-	
 	glPolygonMode(GL_FRONT_AND_BACK, GL_TRIANGLES);
 
 	Program = glCreateProgram();
@@ -72,12 +67,23 @@ Game::Game()
 	
 	glBindAttribLocation(Program, 1, "vert");
 	
+	//glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
+	//glUniformMatrix4fv(glGetUniformLocation(Program,("camera")),1,, glm::value_ptr(camera));
+
+
+
+
 	glLinkProgram(Program);
 	
 	
 	drawTool = new DrawTool(Program);
 	
 	drawTool->LoadDebugWall2D();
+	
+	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
+	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
+	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
 	
 	while (!glfwWindowShouldClose(w))
 	{

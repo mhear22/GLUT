@@ -1,5 +1,7 @@
 R"(
 	#version 410
+
+	//uniform vec4 camera;
 	
 	in vec3 vert;
 	
