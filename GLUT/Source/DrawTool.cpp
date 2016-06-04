@@ -100,6 +100,7 @@ void DrawTool::TriangleWall(int points)
 	glEnd();
 }
 
+//unloader as well
 void DrawTool::LoadDebugWall2D()
 {
 	VAO = 0;
@@ -137,6 +138,7 @@ void DrawTool::DebugWall2D()
 {
 	glUseProgram(Program);
 	glBindVertexArray(VAO);
+	//link this to the class better
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glBindVertexArray(0);
 	glUseProgram(0);

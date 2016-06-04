@@ -38,12 +38,13 @@ Shader::Shader(std::string & sourceCode, GLenum shaderType)
 	*_refCount = 1;
 }
 
-GLuint Shader::object(){
+GLuint Shader::object()
+{
 	return _object;
 }
 
-
-
-
-
-
+GLuint Shader::SetUniform(const GLchar* uniformName, glm::vec4& vec) 
+{
+	//return somthing
+	return 0;
+}
