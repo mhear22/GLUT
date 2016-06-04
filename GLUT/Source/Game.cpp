@@ -1,4 +1,3 @@
-#pragma once
 #include "Game.h"
 
 Game::Game()
@@ -65,10 +64,12 @@ Game::Game()
 	{
 		glAttachShader(Program, shaders[i].object());
 	}
-	glBindAttribLocation(Program, 0, "vert");
+	glBindAttribLocation(Program, 1, "vert");
+	
 	//glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
 	//shaders[0].SetUniform("camera", camera);
 	
+	glLinkProgram(Program);
 	
 	
 	drawTool = new DrawTool(Program);

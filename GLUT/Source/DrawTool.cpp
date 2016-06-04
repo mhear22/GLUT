@@ -1,4 +1,3 @@
-#pragma once
 #include "DrawTool.h"
 
 DrawTool::DrawTool(GLuint program)

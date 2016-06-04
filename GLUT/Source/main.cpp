@@ -1,5 +1,3 @@
-#pragma once
-
 #include "header.h"
 #include "Game.h"
 
