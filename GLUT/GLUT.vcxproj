@@ -111,6 +111,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>header.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;glew.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -130,6 +132,8 @@
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>GLEW_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>header.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;glew.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>

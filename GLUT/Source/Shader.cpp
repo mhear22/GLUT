@@ -1,3 +1,4 @@
+#pragma once
 #include "Shader.h"
 
 Shader::Shader(std::string & sourceCode, GLenum shaderType) 
@@ -43,8 +44,10 @@ GLuint Shader::object()
 	return _object;
 }
 
-GLuint Shader::SetUniform(const GLchar* uniformName, glm::vec4& vec) 
+GLuint Shader::SetUniform(const GLchar* uniformName, glm::mat4& vec)
 {
-	//return somthing
+	auto uniform = glGetUniformLocation(_object, uniformName);
+	
+	glUniformMatrix4fv(uniform, 1, GL_FALSE, glm::value_ptr(vec));
 	return 0;
 }

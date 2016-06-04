@@ -1,3 +1,4 @@
+#pragma once
 #include "Game.h"
 
 Game::Game()
@@ -50,7 +51,6 @@ Game::Game()
 	}
 #endif
 
-	printf("Opened Shader");
 	std::vector<Shader> shaders;
 	
 	shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
@@ -58,22 +58,17 @@ Game::Game()
 	
 	glPolygonMode(GL_FRONT_AND_BACK, GL_TRIANGLES);
 
-	Program = glCreateProgram();
+
 	
+	Program = glCreateProgram();
 	for (int i = 0; i < shaders.size(); i++)
 	{
 		glAttachShader(Program, shaders[i].object());
 	}
+	glBindAttribLocation(Program, 0, "vert");
+	//glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
+	//shaders[0].SetUniform("camera", camera);
 	
-	glBindAttribLocation(Program, 1, "vert");
-	
-	glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
-	
-	
-	
-	//glUniformMatrix4fv(glGetUniformLocation(Program,("camera")),1,, glm::value_ptr(camera));
-	//
-	//glLinkProgram(Program);
 	
 	
 	drawTool = new DrawTool(Program);
@@ -100,10 +95,6 @@ void Game::Draw()
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	drawTool->DebugWall2D();
-	//Draw::DebugWall2D();
-	//Draw::Camera();
-	// = 0 * 0 * 0;
-	//Draw::TriangleWall(100);
 }
 
 void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)

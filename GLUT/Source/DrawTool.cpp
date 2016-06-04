@@ -1,3 +1,4 @@
+#pragma once
 #include "DrawTool.h"
 
 DrawTool::DrawTool(GLuint program)
@@ -5,17 +6,9 @@ DrawTool::DrawTool(GLuint program)
 	Program = program;
 }
 
-void DrawTool::Square(float x, float y, float width, float height)
+DrawTool::DrawTool()
 {
-	glBegin(GL_TRIANGLES);
-	glVertex2f(x, y);
-	glVertex2f(x + width, y);
-	glVertex2f(x + width, y + height);
 
-	glVertex2f(x + width, y + height);
-	glVertex2f(x, y + height);
-	glVertex2f(x, y);
-	glEnd();
 }
 
 static clock_t lastClock = clock() + 1000;
@@ -38,8 +31,8 @@ void DrawTool::TriangleWall()
 			&& vertex[1][1][1] <= centre[1] + 0.00001
 			&& vertex[1][1][1] >= centre[1] - 0.00001)
 		{
-			centre[0] = RandomFloat(-0.9, 0.9);
-			centre[1] = RandomFloat(-0.9, 0.9);
+			centre[0] = RandomFloat(-0.9f, 0.9f);
+			centre[1] = RandomFloat(-0.9f, 0.9f);
 			lastClock = clock() + 1000;
 		}
 		else
@@ -71,32 +64,6 @@ void DrawTool::TriangleWall()
 		glVertex2fv(vertex[2][0]);
 		glVertex2fv(vertex[2][1]);
 		glVertex2fv(vertex[1][1]);
-	glEnd();
-}
-
-std::vector<std::vector<std::vector<std::vector<float>>>> TrianglePoints;
-
-void DrawTool::TriangleWall(int points)
-{
-	TrianglePoints = std::vector<std::vector<std::vector<std::vector<float>>>>();
-	TrianglePoints =	{
-							{ { { -1.0, 1.0 } },{ { 0.0, 1.0 } },{ { 1.0, 1.0 } } },
-							{ { { -1.0, 0.0 } },{ { 0.0, 0.0 } },{ { 1.0, 0.0 } } },
-							{ { { -1.0, -1.0 } },{ { 0.0, -1.0 } },{ { 1.0, -1.0 } } },
-						};
-	glBegin(GL_POINTS);
-
-	for(int i = 0; i < TrianglePoints.size(); i++)
-	{
-		for(int t = 0; t < TrianglePoints[i].size(); t++)
-		{
-			for (int e = 0; e < TrianglePoints[i][t].size(); e++)
-			{
-				glVertex2f(TrianglePoints[i][t][e][0], TrianglePoints[i][t][e][1]);
-			}
-		}
-	}
-	
 	glEnd();
 }
 
@@ -144,8 +111,6 @@ void DrawTool::DebugWall2D()
 	glUseProgram(0);
 }
 
-
-
 GLint DrawTool::GetAttrib(GLchar* glChar)
 {
 	auto x = glGetAttribLocation(Program, glChar);
@@ -155,10 +120,6 @@ GLint DrawTool::GetAttrib(GLchar* glChar)
 	}
 	return x;
 }
-
-
-
-
 
 void DrawTool::DebugWall3D()
 {
@@ -184,7 +145,6 @@ void DrawTool::DebugWall3D()
 		}
 	};
 
-
 	glBegin(GL_POINTS);
 	for (int i = 0; i < Points.size(); i++)
 	{
@@ -204,41 +164,4 @@ float DrawTool::RandomFloat(float low, float high)
 	float f = (float) rand() / (float)RAND_MAX;
 
 	return (f * (high - low)) + low;
-}
-
-
-void DrawTool::Camera()
-{
-	
-}
-
-void DrawTool::Hex(float x, float y, float scale)
-{
-	glBegin(GL_POLYGON);
-	glEnd();
-
-
-	//glVertex3f(x, y + (scale / 2), 0.0);
-	//glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
-	//glVertex3f(x + (scale / 3), y, 0.0);
-	//
-	//glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
-	//glVertex3f(x + (scale / 3), y, 0.0);
-	//glVertex3f(x + 2 * (scale / 3), y, 0.0);
-	//
-	//glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
-	//glVertex3f(x + 2 * (scale / 3), y, 0.0);
-	//glVertex3f(x + scale, y + (scale / 2), 0.0);
-	//
-	//glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
-	//glVertex3f(x + scale, y + (scale / 2), 0.0);
-	//glVertex3f(x + 2 * (scale / 3), y + (scale), 0.0);
-	//
-	//glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
-	//glVertex3f(x + 2 * (scale / 3), y + (scale), 0.0);
-	//glVertex3f(x + 1 * (scale / 3), y + (scale), 0.0);
-	//
-	//glVertex3f(x + 1 * (scale / 3), y + (scale), 0.0);
-	//glVertex3f(x + (scale / 2), y + (scale / 2), 0.0);
-	//glVertex3f(x, y + (scale / 2), 0.0);
 }

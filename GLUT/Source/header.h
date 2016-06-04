@@ -1,9 +1,10 @@
+#pragma once
 #ifndef __header_h__
 #define __header_h__
 
 #define GLEW_STATIC
 
-#pragma comment(lib, "glew.lib")
+//#pragma comment(lib, "glew.lib")
 
 #ifdef __APPLE__
 #include <OpenGL/OpenGL.h>
@@ -16,17 +17,12 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <cstdio>
 #include <chrono>
 #include <time.h>
 #include <string>
-#include <thread>
-#include <tuple>
-#include <random>
-#include <math.h>
 #include <vector>
-#include <iostream>
-#include <sstream>
 
 #endif

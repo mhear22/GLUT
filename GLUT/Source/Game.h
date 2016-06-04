@@ -1,4 +1,4 @@
-
+#pragma once
 #include "header.h"
 #include "DrawTool.h"
 #include "Shader.h"
@@ -27,7 +27,7 @@ private:
 	class Keyboard
 	{
 	public:
-		void static KeyPress(GLFWwindow*,int,int, int, int);
+		void static KeyPress(GLFWwindow*,int,int,int,int);
 	private:
 		unsigned char static keys[256];
 	};

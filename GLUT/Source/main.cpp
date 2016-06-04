@@ -1,5 +1,4 @@
-#include <iostream>
-#include <thread>
+#pragma once
 
 #include "header.h"
 #include "Game.h"
