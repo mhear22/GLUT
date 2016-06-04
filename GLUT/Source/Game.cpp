@@ -16,7 +16,10 @@ Game::Game()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
 	bool FULLSCREEN = false;
-
+	
+	int screenHeight = 0;
+	int screenWidth = 0;
+	
 	GLFWwindow* w;
 	if (FULLSCREEN)
 	{
@@ -24,14 +27,15 @@ Game::Game()
 		const GLFWvidmode* mode = glfwGetVideoMode(x);
 		int count;
 		GLFWmonitor** monitors = glfwGetMonitors(&count);
-		
-		w = glfwCreateWindow(mode->width, mode->height, "", monitors[0], NULL);
+		screenWidth = mode->width;
+		screenHeight = mode->height;
+		w = glfwCreateWindow(screenWidth, screenHeight, "", monitors[0], NULL);
 	}
 	else
 	{
-		int width = 640;
-		int height = 480;
-		w = glfwCreateWindow(width, height, "", NULL, NULL);
+		screenWidth = 640;
+		screenHeight = 480;
+		w = glfwCreateWindow(screenWidth, screenHeight, "", NULL, NULL);
 	}
 
 	glfwMakeContextCurrent(w);
@@ -66,8 +70,13 @@ Game::Game()
 	}
 	glBindAttribLocation(Program, 1, "vert");
 	
-	//glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
-	//shaders[0].SetUniform("camera", camera);
+	glm::mat4 projection = glm::perspective(90.0f, (screenHeight/screenWidth) + 0.0f, 0.1f, 10.0f);
+	shaders[0].SetUniform("projection", projection);
+	
+	glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
+	shaders[0].SetUniform("camera", camera);
+	
+	
 	
 	glLinkProgram(Program);
 	
