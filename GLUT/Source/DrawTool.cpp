@@ -83,13 +83,13 @@ void DrawTool::LoadDebugWall2D()
 	
 	GLfloat Vertex[]
 	{
-		-0.8f, 0.8f, 0.0f,
-		-0.8f,-0.8f, 0.0f,
-		 0.8f,-0.8f, 0.0f,
+		-0.8f, 0.8f, 1.0f,
+		-0.8f,-0.8f, 1.0f,
+		 0.8f,-0.8f, 1.0f,
 
-		-0.8f, 0.8f, 0.0f,
-		 0.8f,-0.8f, 0.0f,
-		 0.8f, 0.8f, 0.0f,
+		-0.8f, 0.8f, 1.0f,
+		 0.8f,-0.8f, 1.0f,
+		 0.8f, 0.8f, 1.0f,
 	};
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
 	
@@ -100,7 +100,7 @@ void DrawTool::LoadDebugWall2D()
 	glBindVertexArray(0);
 }
 
-void DrawTool::DebugWall2D()
+void DrawTool::draw()
 {
 	glUseProgram(Program);
 	glBindVertexArray(VAO);

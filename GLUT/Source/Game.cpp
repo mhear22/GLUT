@@ -15,7 +15,7 @@ Game::Game()
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
-	bool FULLSCREEN = false;
+	bool FULLSCREEN = true;
 	
 	int screenHeight = 0;
 	int screenWidth = 0;
@@ -70,16 +70,21 @@ Game::Game()
 	}
 	glBindAttribLocation(Program, 1, "vert");
 	
-	glm::mat4 projection = glm::perspective(90.0f, (screenHeight/screenWidth) + 0.0f, 0.1f, 10.0f);
+	float aspect = ((screenWidth + 0.0f) /(screenHeight + 0.0f));
+	
+	shaders[0].Use();
+	
+	glm::mat4 projection = glm::perspective(glm::radians(50.0f), aspect, 0.1f, 10.0f);
 	shaders[0].SetUniform("projection", projection);
 	
 	glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
 	shaders[0].SetUniform("camera", camera);
 	
-	
-	
+	shaders[0].StopUsing();
 	glLinkProgram(Program);
 	
+	//glEnable(GL_DEPTH_TEST);
+	//glDepthFunc(GL_LESS);
 	
 	drawTool = new DrawTool(Program);
 	
@@ -102,9 +107,9 @@ Game::Game()
 
 void Game::Draw()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	drawTool->DebugWall2D();
+	drawTool->draw();
 }
 
 void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)

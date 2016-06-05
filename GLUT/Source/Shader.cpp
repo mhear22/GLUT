@@ -38,6 +38,16 @@ Shader::Shader(std::string & sourceCode, GLenum shaderType)
 	*_refCount = 1;
 }
 
+void Shader::Use()
+{
+	glUseProgram(_object);
+}
+
+void Shader::StopUsing()
+{
+	glUseProgram(0);
+}
+
 GLuint Shader::object()
 {
 	return _object;

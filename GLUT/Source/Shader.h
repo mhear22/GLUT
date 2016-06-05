@@ -18,6 +18,8 @@ public:
 	GLuint object();
 
 	GLuint SetUniform(const GLchar* uniformName, glm::mat4& vec);
+	void Use();
+	void StopUsing();
 
 private:
 	GLuint _object;

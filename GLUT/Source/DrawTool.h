@@ -7,7 +7,7 @@ public:
 	DrawTool(GLuint program);
 	DrawTool();
 	
-	void DebugWall2D();
+	void draw();
 	void LoadDebugWall2D();
 	
 	void TriangleWall();

@@ -8,6 +8,7 @@ R"(
 
 	void main()
 	{
-		gl_Position = camera * vec4(vert, 1);
+		//gl_Position = projection * camera * vec4(vert, 1);
+		gl_Position = vec4(vert, 1);
 	}
 )";
