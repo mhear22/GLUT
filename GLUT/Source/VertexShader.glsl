@@ -1,8 +1,8 @@
 R"(
-	#version 410
+	#version 150
 
-	uniform vec4 camera;
-	uniform vec4 projection;
+	uniform mat4 camera;
+	uniform mat4 projection;
 
 	in vec3 vert;
 

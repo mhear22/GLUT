@@ -15,7 +15,7 @@ Game::Game()
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
-	bool FULLSCREEN = true;
+	bool FULLSCREEN = false;
 	
 	int screenHeight = 0;
 	int screenWidth = 0;
@@ -72,7 +72,7 @@ Game::Game()
 	
 	float aspect = ((screenWidth + 0.0f) /(screenHeight + 0.0f));
 	
-	shaders[0].Use();
+	glUseProgram(Program);
 	
 	glm::mat4 projection = glm::perspective(glm::radians(50.0f), aspect, 0.1f, 10.0f);
 	shaders[0].SetUniform("projection", projection);
@@ -80,7 +80,8 @@ Game::Game()
 	glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
 	shaders[0].SetUniform("camera", camera);
 	
-	shaders[0].StopUsing();
+	glUseProgram(0);
+	
 	glLinkProgram(Program);
 	
 	//glEnable(GL_DEPTH_TEST);
