@@ -77,22 +77,21 @@ Game::Game()
 	
 	glUseProgram(Program);
 	
-	glm::mat4 projection = glm::perspective(glm::radians(50.0f), aspect, 0.1f, 10.0f);
+
+	glm::mat4 projection = glm::perspective(glm::radians(90.0f), aspect, 0.1f, 10.0f);
 	Shader::SetUniform("projection", projection, Program);
 	
-	glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
-	Shader::SetUniform("camera", camera, Program);
+	cam = new Camera(Program);
+	
+	cam->draw();
+	
+	//glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
+	//Shader::SetUniform("camera", camera, Program);
 	
 	glUseProgram(0);
 	
-	
-	auto x = glGetUniformLocation(Program, "camera");
-	
-	auto z = glGetUniformLocation(Program, "projection");
-
-
-	//glEnable(GL_DEPTH_TEST);
-	//glDepthFunc(GL_LESS);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
 	
 	drawTool = new DrawTool(Program);
 	
@@ -116,7 +115,8 @@ Game::Game()
 void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
+	glUseProgram(Program);
+	cam->draw();
 	drawTool->draw();
 }
 

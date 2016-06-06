@@ -2,6 +2,7 @@
 #include "header.h"
 #include "DrawTool.h"
 #include "Shader.h"
+#include "Camera.h"
 
 using namespace std::chrono;
 
@@ -14,6 +15,7 @@ private:
 	void Draw();
 	
 	DrawTool* drawTool;
+	Camera* cam;
 
 	class Mouse
 	{
