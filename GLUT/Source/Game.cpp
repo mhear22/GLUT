@@ -70,20 +70,27 @@ Game::Game()
 	}
 	glBindAttribLocation(Program, 1, "vert");
 	
+	
 	float aspect = ((screenWidth + 0.0f) /(screenHeight + 0.0f));
+	
+	glLinkProgram(Program);
 	
 	glUseProgram(Program);
 	
 	glm::mat4 projection = glm::perspective(glm::radians(50.0f), aspect, 0.1f, 10.0f);
-	shaders[0].SetUniform("projection", projection);
+	Shader::SetUniform("projection", projection, Program);
 	
 	glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
-	shaders[0].SetUniform("camera", camera);
+	Shader::SetUniform("camera", camera, Program);
 	
 	glUseProgram(0);
 	
-	glLinkProgram(Program);
 	
+	auto x = glGetUniformLocation(Program, "camera");
+	
+	auto z = glGetUniformLocation(Program, "projection");
+
+
 	//glEnable(GL_DEPTH_TEST);
 	//glDepthFunc(GL_LESS);
 	

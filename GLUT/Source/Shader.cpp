@@ -43,10 +43,15 @@ GLuint Shader::object()
 	return _object;
 }
 
-GLuint Shader::SetUniform(const GLchar* uniformName, glm::mat4& vec)
+GLuint Shader::SetUniform(const GLchar* uniformName, glm::mat4& vec, GLuint Program)
 {
-	auto uniform = glGetUniformLocation(_object, uniformName);
-	
-	glUniformMatrix4fv(uniform, 1, GL_FALSE, glm::value_ptr(vec));
+	GLint uniformLoc = glGetUniformLocation(Program, uniformName);
+	if (uniformLoc == GLint(-1))
+	{
+		throw std::runtime_error("Shader is broken, could not find Uniform");
+	}
+	auto vecptr = glm::value_ptr(vec);
+
+	glUniformMatrix4fv(uniformLoc, 1, GL_FALSE, vecptr);
 	return 0;
 }
