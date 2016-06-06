@@ -78,10 +78,9 @@ Game::Game()
 	glUseProgram(Program);
 	
 
-	glm::mat4 projection = glm::perspective(glm::radians(90.0f), aspect, 0.1f, 10.0f);
-	Shader::SetUniform("projection", projection, Program);
 	
-	cam = new Camera(Program);
+	
+	cam = new Camera(Program, aspect);
 	
 	cam->draw();
 	

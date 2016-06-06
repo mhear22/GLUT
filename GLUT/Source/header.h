@@ -4,21 +4,22 @@
 
 #define GLEW_STATIC
 
-//#pragma comment(lib, "glew.lib")
 
-#ifdef __APPLE__
+#ifdef __APPLE__ //Apple includes
 #include <OpenGL/OpenGL.h>
 #include <OpenGL/gl3.h>
-#else
+#else //Includes for Linux and Windows
 #include <GL/glew.h>
 #include <GL/gl.h>
 #endif
 
+//multiplat includes
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+//c++11 includes
 #include <cstdio>
 #include <chrono>
 #include <time.h>
