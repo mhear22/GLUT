@@ -15,7 +15,7 @@ Game::Game()
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
-	bool FULLSCREEN = false;
+	bool FULLSCREEN = true;
 	
 	int screenHeight = 0;
 	int screenWidth = 0;
@@ -77,30 +77,24 @@ Game::Game()
 	
 	glUseProgram(Program);
 	
-
-	
-	
 	cam = new Camera(Program, aspect);
-	
-	cam->draw();
-	
-	//glm::mat4 camera = glm::lookAt(glm::vec3(3,3,3), glm::vec3(0,0,0), glm::vec3(0,1,0));
-	//Shader::SetUniform("camera", camera, Program);
-	
+	drawTool = new DrawTool(Program);
+	mouse = new Mouse(cam);
+
 	glUseProgram(0);
 	
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 	
-	drawTool = new DrawTool(Program);
 	
-	drawTool->LoadDebugWall2D();
 	
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
 	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
 	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
 	
+
+	drawTool->LoadDebugWall2D();
 	while (!glfwWindowShouldClose(w))
 	{
 		Game::Draw();
@@ -115,14 +109,23 @@ void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(Program);
+	mouse->draw();
 	cam->draw();
 	drawTool->draw();
+}
+
+Game::Mouse::Mouse(Camera* cam)
+{
+	camera = cam;
 }
 
 void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)
 {
 	printf("clicked");
 }
+
+double Game::Mouse::mouseX = 0.0;
+double Game::Mouse::mouseY = 0.0;
 
 void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 {
@@ -131,7 +134,16 @@ void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 		return;
 	}
 	printf("moved %f, %f\n", x,y);
+	mouseX = mouseX + x;
+	mouseY = mouseY + y;
 	glfwSetCursorPos(window, 0,0);
+}
+
+void Game::Mouse::draw()
+{
+	camera->moveCamera(mouseX, mouseY);
+	mouseX = 0.0;
+	mouseY = 0.0;
 }
 
 

@@ -28,7 +28,16 @@ glm::vec3 Camera::getTarget()
 	return glm::vec3(x,y,z);
 }
 
+void Camera::moveCamera(float x, float y)
+{
+	float sensitivity = 1.0f;
+	//Camera controls are fucked
+	target.x = target.x + (sensitivity * x);
+	target.y = target.y + (sensitivity * y);
+}
+
 Camera::~Camera()
 {
 
 }
+

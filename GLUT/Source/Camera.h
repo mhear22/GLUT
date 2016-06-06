@@ -7,7 +7,7 @@ public:
 	Camera(GLuint,float);
 	~Camera();
 
-
+	void moveCamera(float, float);
 
 	void draw();
 private:
