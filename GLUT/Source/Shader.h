@@ -17,7 +17,7 @@ public:
 	Shader(std::string &sourceCode, GLenum shaderType);
 	GLuint object();
 
-	static GLuint Shader::SetUniform(const GLchar* uniformName, glm::mat4& vec, GLuint Program);
+	static GLuint SetUniform(const GLchar* uniformName, glm::mat4& vec, GLuint Program);
 private:
 	GLuint _object;
 	unsigned* _refCount;
