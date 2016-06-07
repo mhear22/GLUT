@@ -141,7 +141,7 @@ void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 
 void Game::Mouse::draw()
 {
-	camera->moveCamera(mouseX, mouseY);
+	camera->RotateCamera(mouseX, mouseY);
 	mouseX = 0.0;
 	mouseY = 0.0;
 }

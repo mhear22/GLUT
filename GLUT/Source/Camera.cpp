@@ -5,35 +5,26 @@ Camera::Camera(GLuint program, float aspect)
 {
 	Program = program;
 
-	position = glm::vec3(1, 1, 3);
-	target = glm::vec3(0,0,1);
-	up = glm::vec3(0, 1, 0);
+	glm::vec3 position = glm::vec3(0, 0, 3);
+	glm::vec3 target = glm::vec3(0,0,1);
+	glm::vec3 up = glm::vec3(0, 1, 0);
 
 	glm::mat4 projection = glm::perspective(glm::radians(90.0f), aspect, 0.1f, 10.0f);
 	Shader::SetUniform("projection", projection, Program);
+	lookingAt = glm::lookAt(position, target, up);
 }
 
 void Camera::draw()
 {
-	auto x = getTarget();
-	glm::mat4 camera = glm::lookAt(position, x, up);
-	Shader::SetUniform("camera", camera, Program);
+	Shader::SetUniform("camera", lookingAt, Program);
 }
 
-glm::vec3 Camera::getTarget()
+void Camera::RotateCamera(float x, float y)
 {
-	float x = position.x - target.x;
-	float y = position.y - target.y;
-	float z = position.z - target.z;
-	return glm::vec3(x,y,z);
-}
-
-void Camera::moveCamera(float x, float y)
-{
-	float sensitivity = 1.0f;
-	//Camera controls are fucked
-	target.x = target.x + (sensitivity * x);
-	target.y = target.y + (sensitivity * y);
+	float sensitivity = 0.01f;
+	
+	lookingAt = glm::rotate(lookingAt, x * sensitivity , glm::vec3(1,0,0));
+	lookingAt = glm::rotate(lookingAt, y * sensitivity , glm::vec3(0,1,0));
 }
 
 Camera::~Camera()
