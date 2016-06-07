@@ -59,6 +59,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		083BEE1F1D06CE00002412AA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				08F08D881CE6F6180073D80B /* DrawTool.cpp */,
+				08F08D8A1CE6F6180073D80B /* Game.cpp */,
+				08F08D8C1CE6F6180073D80B /* main.cpp */,
+				087386141CEB535300817BE2 /* Shader.cpp */,
+				080D41CE1D05C3FF00DBE3E6 /* Camera.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		083BEE201D06CE1B002412AA /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				088582521CF5ACE7009D6C54 /* FragmentShader.glsl */,
+				088582531CF5ACE7009D6C54 /* VertexShader.glsl */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		083BEE211D06CE23002412AA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				08F08D901CE6F6910073D80B /* header.h */,
+				08F08D891CE6F6180073D80B /* DrawTool.h */,
+				08F08D8B1CE6F6180073D80B /* Game.h */,
+				087386151CEB535300817BE2 /* Shader.h */,
+				080D41CF1D05C3FF00DBE3E6 /* Camera.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
 		08CBF6BC1CE4CDB000E7A1C3 = {
 			isa = PBXGroup;
 			children = (
@@ -80,18 +113,9 @@
 		08CBF6C71CE4CDB000E7A1C3 /* GLUT */ = {
 			isa = PBXGroup;
 			children = (
-				080D41CE1D05C3FF00DBE3E6 /* Camera.cpp */,
-				080D41CF1D05C3FF00DBE3E6 /* Camera.h */,
-				088582521CF5ACE7009D6C54 /* FragmentShader.glsl */,
-				088582531CF5ACE7009D6C54 /* VertexShader.glsl */,
-				08F08D881CE6F6180073D80B /* DrawTool.cpp */,
-				08F08D891CE6F6180073D80B /* DrawTool.h */,
-				08F08D8A1CE6F6180073D80B /* Game.cpp */,
-				08F08D8B1CE6F6180073D80B /* Game.h */,
-				08F08D8C1CE6F6180073D80B /* main.cpp */,
-				08F08D901CE6F6910073D80B /* header.h */,
-				087386141CEB535300817BE2 /* Shader.cpp */,
-				087386151CEB535300817BE2 /* Shader.h */,
+				083BEE211D06CE23002412AA /* Headers */,
+				083BEE201D06CE1B002412AA /* Shaders */,
+				083BEE1F1D06CE00002412AA /* Source */,
 			);
 			path = GLUT;
 			sourceTree = "<group>";
