@@ -5,18 +5,17 @@ class DrawTool
 {
 public:
 	DrawTool(GLuint program);
-	DrawTool();
 	
 	void draw();
 	void LoadDebugWall2D();
+	void LoadDebugWall3D();
 	
-	void TriangleWall();
-	void DebugWall3D();
-	
-	GLint GetAttrib(GLchar* glChar);
 private:
+	GLint GetAttrib(GLchar* glChar);
 	float RandomFloat(float low, float high);
 	GLuint Program;
 	GLuint VAO;
 	GLuint VBO;
+	int _polyStart;
+	int _polyEnd;
 };

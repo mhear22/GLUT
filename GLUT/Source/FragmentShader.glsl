@@ -5,7 +5,7 @@ R"(
 	
 	void main()
 	{
-		FinalColour = vec4(1.0, 0.5, 1.0, 1.0);
+		FinalColour = vec4(0.3, 0.1, 0.1, 0.5);
 	}
 	
 )";

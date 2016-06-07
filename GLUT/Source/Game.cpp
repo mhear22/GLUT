@@ -95,7 +95,7 @@ Game::Game()
 	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
 	
 
-	drawTool->LoadDebugWall2D();
+	drawTool->LoadDebugWall3D();
 	while (!glfwWindowShouldClose(w))
 	{
 		Game::Draw();

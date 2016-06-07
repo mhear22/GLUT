@@ -5,67 +5,6 @@ DrawTool::DrawTool(GLuint program)
 	Program = program;
 }
 
-DrawTool::DrawTool()
-{
-
-}
-
-static clock_t lastClock = clock() + 1000;
-static float vertex[3][3][2] = {
-									{{-1,-1},{-1,0},{-1,1}},
-									{{ 0,-1},{0, 0},{0, 1}},
-									{{ 1,-1},{1, 0},{1, 1}}
-								};
-static float centre[2] = {0,0};
-
-void DrawTool::TriangleWall()
-{
-	if(lastClock <= clock())
-	{
-		vertex[1][1][0] = { 1.01f * (centre[0] / 10) + 8.99f * (vertex[1][1][0] / 10) };
-		vertex[1][1][1] = { 1.01f * (centre[1] / 10) + 8.99f * (vertex[1][1][1] / 10) };
-
-		if(    vertex[1][1][0] <= centre[0] + 0.00001
-			&& vertex[1][1][0] >= centre[0] - 0.00001
-			&& vertex[1][1][1] <= centre[1] + 0.00001
-			&& vertex[1][1][1] >= centre[1] - 0.00001)
-		{
-			centre[0] = RandomFloat(-0.9f, 0.9f);
-			centre[1] = RandomFloat(-0.9f, 0.9f);
-			lastClock = clock() + 1000;
-		}
-		else
-		{
-			lastClock = clock() + 10;
-		}
-
-	}
-
-	glBegin(GL_TRIANGLES);
-
-		
-		glColor3f(1,0,0);
-
-		glVertex2fv(vertex[0][0]);
-		glVertex2fv(vertex[0][1]);
-		glVertex2fv(vertex[1][1]);
-		
-		glVertex2fv(vertex[2][2]);
-		glVertex2fv(vertex[2][1]);
-		glVertex2fv(vertex[1][1]);
-
-		glColor3f(1,0, 0);
-		
-		glVertex2fv(vertex[0][1]);
-		glVertex2fv(vertex[0][2]);
-		glVertex2fv(vertex[1][1]);
-
-		glVertex2fv(vertex[2][0]);
-		glVertex2fv(vertex[2][1]);
-		glVertex2fv(vertex[1][1]);
-	glEnd();
-}
-
 //unloader as well
 void DrawTool::LoadDebugWall2D()
 {
@@ -91,6 +30,10 @@ void DrawTool::LoadDebugWall2D()
 		 0.8f,-0.8f, 1.0f,
 		 0.8f, 0.8f, 1.0f,
 	};
+
+	_polyStart = 0;
+	_polyEnd = sizeof(Vertex)/sizeof(Vertex[0])*3;
+
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
 	
 	glEnableVertexAttribArray(GetAttrib("vert"));
@@ -100,12 +43,58 @@ void DrawTool::LoadDebugWall2D()
 	glBindVertexArray(0);
 }
 
+void DrawTool::LoadDebugWall3D()
+{
+	VAO = 0;
+	VBO = 0;
+
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
+	
+	glGenBuffers(1, &VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+
+	GLfloat Vertex[]
+	{
+		-0.8f, 0.8f, 0.8f,
+		-0.8f,-0.8f, 0.8f,
+		0.8f,-0.8f, 0.8f,
+
+		-0.8f, 0.8f, 0.8f,
+		0.8f,-0.8f, 0.8f,
+		0.8f, 0.8f, 0.8f,
+
+
+		-0.8f, 0.8f, -0.8f,
+		-0.8f,-0.8f, -0.8f,
+		0.8f,-0.8f, -0.8f,
+
+		-0.8f, 0.8f, -0.8f,
+		0.8f,-0.8f, -0.8f,
+		0.8f, 0.8f, -0.8f,
+
+	};
+
+	_polyStart = 0;
+	_polyEnd = sizeof(Vertex) / sizeof(Vertex[0]) * 3;
+
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(GetAttrib("vert"));
+	glVertexAttribPointer(GetAttrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+
+
 void DrawTool::draw()
 {
 	glUseProgram(Program);
 	glBindVertexArray(VAO);
 	//link this to the class better
-	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDrawArrays(GL_TRIANGLES, _polyStart, _polyEnd);
 	glBindVertexArray(0);
 	glUseProgram(0);
 }
@@ -118,44 +107,6 @@ GLint DrawTool::GetAttrib(GLchar* glChar)
 		throw std::runtime_error("Could not find attribute");
 	}
 	return x;
-}
-
-void DrawTool::DebugWall3D()
-{
-	std::vector<std::vector<std::vector<std::vector<float>>>> Points = std::vector<std::vector<std::vector<std::vector<float>>>>();
-	Points = 
-	{
-		{
-			{
-				{ -1.0,0.0,-1.0 },
-				{ 0.0,0.0,-1.0 },
-				{ 1.0,0.0,-1.0 }
-			},
-			{
-				{ -1.0,1.0,-1.0 },
-				{ 0.0,1.0,-1.0 },
-				{ 1.0,1.0,-1.0 }
-			},
-			{
-				{ -1.0,-1.0,-1.0 },
-				{ 0.0,-1.0,-1.0 },
-				{ 1.0,-1.0,-1.0 }
-			}
-		}
-	};
-
-	glBegin(GL_POINTS);
-	for (int i = 0; i < Points.size(); i++)
-	{
-		for (int t = 0; t < Points[i].size(); t++)
-		{
-			for (int e = 0; e < Points[i][t].size(); e++)
-			{
-				glVertex3f(Points[i][t][e][0], Points[i][t][e][1], Points[i][t][e][2]);
-			}
-		}
-	}
-	glEnd();
 }
 
 float DrawTool::RandomFloat(float low, float high)

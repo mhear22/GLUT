@@ -8,7 +8,6 @@ public:
 	Camera(GLuint,float);
 	~Camera();
 
-	void RotateCamera(float x, float y);
 	void OffsetOrientation(float x, float y);
 	glm::mat4 Orientation();
 	glm::mat4 Matrix();
@@ -20,9 +19,9 @@ private:
 
 	void NormaliseAngles();
 	GLuint Program;
+	glm::vec3 _position;
 	float _verticalAngle;
 	float _horizontalAngle;
-	glm::vec3 _position;
 	float _fov;
 	float _aspect;
 	float _nearPlane;
