@@ -90,6 +90,7 @@ Game::Game()
 	
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
 	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetCursorPos(w, 0, 0);
 	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
 	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
 	
@@ -141,7 +142,7 @@ void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
 
 void Game::Mouse::draw()
 {
-	camera->RotateCamera(mouseX, mouseY);
+	camera->OffsetOrientation(mouseX, mouseY);
 	mouseX = 0.0;
 	mouseY = 0.0;
 }
