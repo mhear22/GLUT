@@ -17,7 +17,8 @@ Camera::Camera(GLuint program, float aspect)
 
 void Camera::draw()
 {
-	Shader::SetUniform("camera", Matrix(), Program);
+	auto matrix = Matrix();
+	Shader::SetUniform("camera", matrix, Program);
 }
 
 void Camera::OffsetOrientation(float x, float y)
