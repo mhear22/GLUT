@@ -99,15 +99,15 @@
     <LibraryPath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Git\GLUT\packages\glew.1.9.0.1\build\native\include;C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\include;C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
     <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
-    <LibraryPath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\lib\x64\Release;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Git\GLUT\packages\glew.1.9.0.1\build\native\include;C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\include;C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
     <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
-    <LibraryPath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\lib\x64\Release;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -136,7 +136,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PreprocessorDefinitions>GLEW_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>header.h</PrecompiledHeaderFile>
@@ -182,6 +182,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -199,6 +200,7 @@
     <Import Project="..\packages\glm.0.9.7.1\build\native\glm.targets" Condition="Exists('..\packages\glm.0.9.7.1\build\native\glm.targets')" />
     <Import Project="..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets" Condition="Exists('..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets')" />
     <Import Project="..\packages\glew.1.9.0.1\build\native\glew.targets" Condition="Exists('..\packages\glew.1.9.0.1\build\native\glew.targets')" />
+    <Import Project="..\packages\glew.v140.1.12.0\build\native\glew.v140.targets" Condition="Exists('..\packages\glew.v140.1.12.0\build\native\glew.v140.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -207,5 +209,6 @@
     <Error Condition="!Exists('..\packages\glm.0.9.7.1\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glm.0.9.7.1\build\native\glm.targets'))" />
     <Error Condition="!Exists('..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glew.redist.1.9.0.1\build\native\glew.redist.targets'))" />
     <Error Condition="!Exists('..\packages\glew.1.9.0.1\build\native\glew.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glew.1.9.0.1\build\native\glew.targets'))" />
+    <Error Condition="!Exists('..\packages\glew.v140.1.12.0\build\native\glew.v140.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glew.v140.1.12.0\build\native\glew.v140.targets'))" />
   </Target>
 </Project>
