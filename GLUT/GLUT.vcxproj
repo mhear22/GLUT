@@ -99,15 +99,15 @@
     <LibraryPath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\x64\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\include;C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
-    <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
-    <LibraryPath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\lib\x64\Release;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Git\OpenGL\packages\glew.v140.1.12.0\build\native\include;C:\Git\OpenGL\packages\GLFW\include;$(IncludePath)</IncludePath>
+    <SourcePath>C:\Git\OpenGL\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\OpenGL\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
+    <LibraryPath>C:\Git\OpenGL\packages\glew.v140.1.12.0\build\native\lib\x64\Release;C:\Git\OpenGL\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\include;C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
-    <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
-    <LibraryPath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\lib\x64\Release;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Git\OpenGL\packages\glew.v140.1.12.0\build\native\include;C:\Git\OpenGL\packages\GLFW\include;$(IncludePath)</IncludePath>
+    <SourcePath>C:\Git\OpenGL\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\OpenGL\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
+    <LibraryPath>C:\Git\OpenGL\packages\glew.v140.1.12.0\build\native\lib\x64\Release;C:\Git\OpenGL\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -143,7 +143,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>glfw3.lib;glew.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Git\GLUT\packages\glew.1.9.0.1\build\native\lib\v110\x64\Release\static;C:\Git\Glut\packages\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Git\OpenGL\packages\glew.1.9.0.1\build\native\lib\v110\x64\Release\static;C:\Git\OpenGL\packages\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ForceFileOutput>
       </ForceFileOutput>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
@@ -188,7 +188,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>glfw3.lib;glew.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Git\GLUT\packages\glew.1.9.0.1\build\native\lib\v110\x64\Release\static;C:\Git\Glut\packages\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Git\OpenGL\packages\glew.1.9.0.1\build\native\lib\v110\x64\Release\static;C:\Git\OpenGL\packages\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>
