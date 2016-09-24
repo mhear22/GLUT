@@ -1,4 +1,4 @@
-CC=g++
+CC=clang
 SRC=Engine/Source/
 OBJ=$(SRC)*.cpp
 CFLG= -std=c++11

@@ -8,7 +8,9 @@
 ## Build generated
 build/
 DerivedData/
+
 .xcuserdatad
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
