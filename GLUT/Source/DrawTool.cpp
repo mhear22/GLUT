@@ -36,8 +36,8 @@ void DrawTool::LoadDebugWall2D()
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
 	
-	glEnableVertexAttribArray(GetAttrib("vert"));
-	glVertexAttribPointer(GetAttrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	glEnableVertexAttribArray(GetAttrib((GLchar *)"vert"));
+	glVertexAttribPointer(GetAttrib((GLchar *)"vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
@@ -80,8 +80,8 @@ void DrawTool::LoadDebugWall3D()
 
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
-	glEnableVertexAttribArray(GetAttrib("vert"));
-	glVertexAttribPointer(GetAttrib("vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	glEnableVertexAttribArray(GetAttrib((GLchar *)"vert"));
+	glVertexAttribPointer(GetAttrib((GLchar *)"vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
