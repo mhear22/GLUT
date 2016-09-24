@@ -22,6 +22,7 @@
     <ClCompile Include="Source\Camera.cpp" />
     <ClCompile Include="Source\DrawTool.cpp" />
     <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Shader.cpp" />
   </ItemGroup>
@@ -30,6 +31,7 @@
     <ClInclude Include="Source\DrawTool.h" />
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\header.h" />
+    <ClInclude Include="Source\Input.h" />
     <ClInclude Include="Source\Shader.h" />
   </ItemGroup>
   <ItemGroup>

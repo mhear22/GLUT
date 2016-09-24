@@ -15,7 +15,7 @@ Game::Game()
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
-	bool FULLSCREEN = true;
+	bool FULLSCREEN = false;
 	
 	int screenHeight = 0;
 	int screenWidth = 0;
