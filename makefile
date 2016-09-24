@@ -3,9 +3,10 @@ SRC=Engine/Source/
 OBJ=$(SRC)*.cpp
 CFLG= -std=c++11
 LIBS=
+UNAME := $(shell uname)
 
 ifeq ($(UNAME),Darwin)
-LIBS= -framework OpenGL -I/usr/include
+LIBS=-framework OpenGL -I/usr/include -lglfw -lglfw3
 endif
 
 ifeq ($(UNAME),Windows)
@@ -16,6 +17,7 @@ endif
 all: Main
 	
 Main:
+	clear
 	$(CC) $(OBJ) $(LIBS) $(CFLG)
 	
 clean:
