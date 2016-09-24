@@ -1,12 +1,19 @@
 CC=clang
 SRC=Engine/Source/
 OBJ=$(SRC)*.cpp
-CFLG= -std=c++11
+CFLG= -Wall -std=c++11
 LIBS=
+INCL=
+FRMWK=
 UNAME := $(shell uname)
+EXE=a.out
 
 ifeq ($(UNAME),Darwin)
-LIBS=-framework OpenGL -I/usr/include -lglfw -lglfw3
+LIBS=-lGL -lGLEW -lglfw3
+INCL=-L/usr/local/lib -I/usr/lib
+FRMWK=-framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
+
+#-lglfw3 -lrt -lXrandr -lXinerama -lXi -lXcursor -lGL -lm -ldl -lXrender -ldrm -lXdamage -lX11-xcb -lxcb-glx -lxcb-dri2 -lxcb-dri3 -lxcb-present -lxcb-sync -lxshmfence -lXxf86vm -lXfixes -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp
 endif
 
 ifeq ($(UNAME),Windows)
@@ -17,7 +24,7 @@ endif
 all: Main
 	
 Main:
-	$(CC) $(OBJ) $(LIBS) $(CFLG)
+	$(CC) $(OBJ) $(FRMWK) $(INCL) $(LIBS) $(CFLG) -o $(EXE)
 	
 clean:
-	rm a.out
+	rm $(EXE)
