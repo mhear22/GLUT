@@ -9,7 +9,7 @@
 build/
 DerivedData/
 
-.xcuserdatad
+*.xcuserdatad
 
 ## Various settings
 *.pbxuser
