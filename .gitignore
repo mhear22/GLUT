@@ -2,13 +2,33 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/x64/Debug/GLUT.tlog
-/GLUT/.vscode/.browse.VC.db
-/GLUT/.vscode/.browse.VC.db-shm
-/GLUT/.vscode/.browse.VC.db-wal
-/GLUT/x64/Debug
-/Project1.VC.VC.opendb
-/Project1.VC.db
+/x64
+/packages
+
+## Build generated
+build/
+DerivedData/
+
+*.xcuserdatad
+*.xcuserstate
+/xuserdata
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
 
  -### C++ ###
 -# Compiled Object files
