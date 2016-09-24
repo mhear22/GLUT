@@ -17,7 +17,7 @@ Camera::Camera(GLuint program, float aspect)
 
 void Camera::draw()
 {
-	auto matrix = Matrix();
+	mat4 matrix = Matrix();
 	Shader::SetUniform("camera", matrix, Program);
 }
 
@@ -28,25 +28,25 @@ void Camera::OffsetOrientation(float x, float y)
 	NormaliseAngles();
 }
 
-glm::mat4 Camera::Projection()
+mat4 Camera::Projection()
 {
-	return glm::perspective(glm::radians(_fov), _aspect, _nearPlane, _farPlane);
+	return perspective(radians(_fov), _aspect, _nearPlane, _farPlane);
 }
 
-glm::mat4 Camera::View()
+mat4 Camera::View()
 {
-	return Orientation() * glm::translate(glm::mat4(), -_position);
+	return Orientation() * translate(mat4(), -_position);
 }
 
-glm::mat4 Camera::Orientation()
+mat4 Camera::Orientation()
 {
-	glm::mat4 orientation;
-	orientation = glm::rotate(orientation, glm::radians(_verticalAngle), glm::vec3(1, 0, 0));
-	orientation = glm::rotate(orientation, glm::radians(_horizontalAngle), glm::vec3(0, 1, 0));
+	mat4 orientation;
+	orientation = rotate(orientation, radians(_verticalAngle), vec3(1, 0, 0));
+	orientation = rotate(orientation, radians(_horizontalAngle), vec3(0, 1, 0));
 	return orientation;
 }
 
-glm::mat4 Camera::Matrix()
+mat4 Camera::Matrix()
 {
 	return Projection() * View();
 }

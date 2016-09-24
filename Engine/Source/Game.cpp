@@ -86,8 +86,6 @@ Game::Game()
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 	
-	
-	
 	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
 	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPos(w, 0, 0);

@@ -1,6 +1,7 @@
 #pragma once
 #include "header.h"
 
+using namespace glm;
 
 
 class Camera {

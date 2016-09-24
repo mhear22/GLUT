@@ -91,12 +91,10 @@ void DrawTool::LoadDebugWall3D()
 
 void DrawTool::draw()
 {
-	glUseProgram(Program);
 	glBindVertexArray(VAO);
 	//link this to the class better
 	glDrawArrays(GL_TRIANGLES, _polyStart, _polyEnd);
 	glBindVertexArray(0);
-	glUseProgram(0);
 }
 
 GLint DrawTool::GetAttrib(GLchar* glChar)
