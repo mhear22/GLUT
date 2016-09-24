@@ -17,7 +17,6 @@ endif
 all: Main
 	
 Main:
-	clear
 	$(CC) $(OBJ) $(LIBS) $(CFLG)
 	
 clean:

@@ -10,7 +10,7 @@
 		{
 			"taskName": "MakeFile",
 			"isBuildCommand": true,
-			"args": ["-f", "MakeFile", "all"],
+			"args": [],
 			"echoCommand": true,
 			"suppressTaskName": true,
 			"showOutput": "always",
