@@ -80,7 +80,8 @@ Game::Game()
 	cam = new Camera(Program, aspect);
 	drawTool = new DrawTool(Program);
 	mouse = new Mouse(cam);
-
+	input = new Input(cam);
+	
 	glUseProgram(0);
 	
 	glEnable(GL_DEPTH_TEST);
@@ -109,6 +110,7 @@ void Game::Draw()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(Program);
 	mouse->draw();
+	input->Draw();
 	cam->draw();
 	drawTool->draw();
 }

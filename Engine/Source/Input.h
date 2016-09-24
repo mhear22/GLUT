@@ -2,13 +2,15 @@
 #define input_hpp
 
 #include "header.h"
+#include "Camera.h"
 
 class Input
 {
 public:
-	Input();
+	Input(Camera* cam);
+	void Draw();
 private:
-	
+	Camera* camera;
 };
 
 #endif

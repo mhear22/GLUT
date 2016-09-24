@@ -1,6 +1,11 @@
 #include "Input.h"
 
-Input::Input()
+Input::Input(Camera* cam)
+{
+	this->camera = cam;
+}
+
+void Input::Draw()
 {
 	
 }
