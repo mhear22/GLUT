@@ -10,17 +10,17 @@ public:
 	~Camera();
 
 	void OffsetOrientation(float x, float y);
-	glm::mat4 Orientation();
-	glm::mat4 Matrix();
-	glm::mat4 Projection();
-	glm::mat4 View();
+	mat4 Orientation();
+	mat4 Matrix();
+	mat4 Projection();
+	mat4 View();
 
 	void draw();
 private:
 
 	void NormaliseAngles();
 	GLuint Program;
-	glm::vec3 _position;
+	vec3 _position;
 	float _verticalAngle;
 	float _horizontalAngle;
 	float _fov;
