@@ -31,7 +31,7 @@
 		{
 			"taskName": "CleanFile",
 			"isBuildCommand": true,
-			"args": ["-f", "MakeFile", "clean"],
+			"args": ["clean"],
 			"echoCommand": false,
 			"suppressTaskName": true,
 			"showOutput": "always",
