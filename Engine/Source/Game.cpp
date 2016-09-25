@@ -79,7 +79,6 @@ Game::Game()
 	
 	cam = new Camera(Program, aspect);
 	drawTool = new DrawTool(Program);
-	mouse = new Mouse(cam);
 	input = new Input(cam);
 	
 	glUseProgram(0);
@@ -87,11 +86,11 @@ Game::Game()
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 	
-	glfwSetKeyCallback(w, Game::Keyboard::KeyPress);
+	glfwSetKeyCallback(w, Input::KeyPress);
 	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPos(w, 0, 0);
-	glfwSetMouseButtonCallback(w, Game::Mouse::Clicked);
-	glfwSetCursorPosCallback(w, Game::Mouse::Moved);
+	glfwSetMouseButtonCallback(w, Input::Click);
+	glfwSetCursorPosCallback(w, Input::Move);
 	
 
 	drawTool->LoadDebugWall3D();
@@ -109,54 +108,8 @@ void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(Program);
-	mouse->draw();
+	//mouse->draw();
 	input->Draw();
 	cam->draw();
 	drawTool->draw();
-}
-
-Game::Mouse::Mouse(Camera* cam)
-{
-	camera = cam;
-}
-
-void Game::Mouse::Clicked(GLFWwindow* window,int button, int action, int mods)
-{
-	printf("clicked");
-}
-
-double Game::Mouse::mouseX = 0.0;
-double Game::Mouse::mouseY = 0.0;
-
-void Game::Mouse::Moved(GLFWwindow* window, double x, double y)
-{
-	if(x == 0 && y == 0)
-	{
-		return;
-	}
-	printf("moved %f, %f\n", x,y);
-	mouseX = mouseX + x;
-	mouseY = mouseY + y;
-	glfwSetCursorPos(window, 0,0);
-}
-
-void Game::Mouse::draw()
-{
-	camera->OffsetOrientation(mouseX, mouseY);
-	mouseX = 0.0;
-	mouseY = 0.0;
-}
-
-
-void Game::Keyboard::KeyPress(GLFWwindow* window, int key, int scancode, int actions, int mods)
-{
-	if(key == 256)
-	{
-		exit(0);
-	}
-	else if (key == 96)
-	{
-		printf("Break");
-	}
-
 }
