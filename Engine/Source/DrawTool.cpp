@@ -5,44 +5,6 @@ DrawTool::DrawTool(GLuint program)
 	Program = program;
 }
 
-//unloader as well
-void DrawTool::LoadDebugWall2D()
-{
-	VAO = 0;
-	VBO = 0;
-	
-	//VAO
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
-	
-	
-	//VBO
-	glGenBuffers(1,&VBO);
-	glBindBuffer(GL_ARRAY_BUFFER,VBO);
-	
-	GLfloat Vertex[]
-	{
-		-0.8f, 0.8f, 1.0f,
-		-0.8f,-0.8f, 1.0f,
-		 0.8f,-0.8f, 1.0f,
-
-		-0.8f, 0.8f, 1.0f,
-		 0.8f,-0.8f, 1.0f,
-		 0.8f, 0.8f, 1.0f,
-	};
-
-	_polyStart = 0;
-	_polyEnd = sizeof(Vertex)/sizeof(Vertex[0])*3;
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
-	
-	glEnableVertexAttribArray(GetAttrib((GLchar *)"vert"));
-	glVertexAttribPointer(GetAttrib((GLchar *)"vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
-	
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-}
-
 void DrawTool::LoadDebugWall3D()
 {
 	VAO = 0;
@@ -91,6 +53,7 @@ void DrawTool::LoadDebugWall3D()
 
 void DrawTool::draw()
 {
+	
 	glBindVertexArray(VAO);
 	//link this to the class better
 	glDrawArrays(GL_TRIANGLES, _polyStart, _polyEnd);

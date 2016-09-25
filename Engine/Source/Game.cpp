@@ -94,6 +94,8 @@ Game::Game()
 	
 
 	drawTool->LoadDebugWall3D();
+	
+	
 	while (!glfwWindowShouldClose(w))
 	{
 		Game::Draw();

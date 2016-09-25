@@ -7,7 +7,6 @@ public:
 	DrawTool(GLuint program);
 	
 	void draw();
-	void LoadDebugWall2D();
 	void LoadDebugWall3D();
 	
 private:
