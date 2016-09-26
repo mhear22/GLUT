@@ -7,6 +7,7 @@ class ModelBase
 {
 public:
 	virtual void Draw(DrawTool* tool) = 0;
+	virtual void Load(DrawTool* tool) = 0;
 };
 
 

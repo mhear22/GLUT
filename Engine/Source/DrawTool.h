@@ -6,15 +6,9 @@ class DrawTool
 public:
 	DrawTool(GLuint program);
 	
-	void draw();
-	void LoadDebugWall3D();
-	
-private:
 	GLint GetAttrib(GLchar* glChar);
 	float RandomFloat(float low, float high);
+	
+private:
 	GLuint Program;
-	GLuint VAO;
-	GLuint VBO;
-	int _polyStart;
-	int _polyEnd;
 };

@@ -1,8 +1,9 @@
 #include "ModelContainer.h"
 
-ModelContainer::ModelContainer()
+ModelContainer::ModelContainer(DrawTool* drawTool)
 {
-	
+	tool = drawTool;
+	models = std::vector<ModelBase*>();
 }
 
 void ModelContainer::AddModel(ModelBase* model)
@@ -10,12 +11,23 @@ void ModelContainer::AddModel(ModelBase* model)
 	models.push_back(model);
 }
 
-void ModelContainer::Draw(DrawTool* tool)
+void ModelContainer::Load()
 {
-	if(models.size() == 0)
+	for(int i = 0; i < models.size(); i++)
+	{
+		models.at(i)->Load(tool);
+	}
+}
+
+void ModelContainer::Draw()
+{
+	auto size = models.size();
+	if(size == 0)
 		return;
-	std::for_each(models.begin(), models.end(), [tool](ModelBase* item) {
-		item->Draw(tool);
-	});
+	
+	for(int i = 0; i != models.size(); i++)
+	{
+		models.at(i)->Draw(tool);
+	}
 }
 

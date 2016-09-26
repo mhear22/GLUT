@@ -6,6 +6,7 @@
 #include "Input.h"
 #include "ModelBase.h"
 #include "ModelContainer.h"
+#include "TestModel.h"
 
 using namespace std::chrono;
 

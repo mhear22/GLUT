@@ -8,10 +8,12 @@
 class ModelContainer
 {
 public:
-	ModelContainer();
+	ModelContainer(DrawTool* drawTool);
 	void AddModel(ModelBase* model);
-	void Draw(DrawTool* tool);
+	void Draw();
+	void Load();
 private:
+	DrawTool* tool;
 	std::vector<ModelBase*> models;
 };
 

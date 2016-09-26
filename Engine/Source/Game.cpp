@@ -52,7 +52,7 @@ Game::Game()
 		exit(0);
 	}
 #endif
-
+	
 	std::vector<Shader> shaders;
 	
 	shaders.push_back(Shader(DefaultVertexShader , GL_VERTEX_SHADER));
@@ -79,6 +79,7 @@ Game::Game()
 	cam = new Camera(Program, aspect);
 	drawTool = new DrawTool(Program);
 	input = new Input(cam);
+	container = new ModelContainer(drawTool);
 	
 	glUseProgram(0);
 	
@@ -91,17 +92,17 @@ Game::Game()
 	glfwSetMouseButtonCallback(currentWindow, Input::Click);
 	glfwSetCursorPosCallback(currentWindow, Input::Move);
 	
-	
-	drawTool->LoadDebugWall3D();
+	container->AddModel(new TestModel());
 }
 
 void Game::Run()
 {
-	container->Draw(drawTool);
 	if(currentWindow == nullptr)
 	{
 		throw "Null Pointer Exception";
 	}
+	
+	container->Load();
 	
 	while (!glfwWindowShouldClose(currentWindow))
 	{
@@ -117,8 +118,7 @@ void Game::Draw()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(Program);
-	//mouse->draw();
 	input->Draw();
 	cam->draw();
-	drawTool->draw();
+	container->Draw();
 }
