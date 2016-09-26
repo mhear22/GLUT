@@ -11,10 +11,12 @@ class Game
 {
 public:
 	Game();
+	void Run();
 	GLuint Program;
 private:
 	void Draw();
 	
+	GLFWwindow* currentWindow;
 	DrawTool* drawTool;
 	Camera* cam;
 	Input* input;

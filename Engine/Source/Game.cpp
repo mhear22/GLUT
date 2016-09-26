@@ -20,7 +20,6 @@ Game::Game()
 	int screenHeight = 0;
 	int screenWidth = 0;
 	
-	GLFWwindow* w;
 	if (FULLSCREEN)
 	{
 		GLFWmonitor* x = glfwGetPrimaryMonitor();
@@ -29,16 +28,16 @@ Game::Game()
 		GLFWmonitor** monitors = glfwGetMonitors(&count);
 		screenWidth = mode->width;
 		screenHeight = mode->height;
-		w = glfwCreateWindow(screenWidth, screenHeight, "", monitors[0], NULL);
+		currentWindow = glfwCreateWindow(screenWidth, screenHeight, "", monitors[0], NULL);
 	}
 	else
 	{
 		screenWidth = 640;
 		screenHeight = 480;
-		w = glfwCreateWindow(screenWidth, screenHeight, "", NULL, NULL);
+		currentWindow = glfwCreateWindow(screenWidth, screenHeight, "", NULL, NULL);
 	}
 
-	glfwMakeContextCurrent(w);
+	glfwMakeContextCurrent(currentWindow);
 	
 	auto ver = glGetString(GL_VERSION);
 	printf("%s \n", ver);
@@ -86,23 +85,30 @@ Game::Game()
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 	
-	glfwSetKeyCallback(w, Input::KeyPress);
-	glfwSetInputMode(w, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-	glfwSetCursorPos(w, 0, 0);
-	glfwSetMouseButtonCallback(w, Input::Click);
-	glfwSetCursorPosCallback(w, Input::Move);
+	glfwSetKeyCallback(currentWindow, Input::KeyPress);
+	glfwSetInputMode(currentWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetCursorPos(currentWindow, 0, 0);
+	glfwSetMouseButtonCallback(currentWindow, Input::Click);
+	glfwSetCursorPosCallback(currentWindow, Input::Move);
 	
 
 	drawTool->LoadDebugWall3D();
+}
+
+void Game::Run()
+{
+	if(currentWindow == nullptr)
+	{
+		throw "Null Pointer Exception";
+	}
 	
-	
-	while (!glfwWindowShouldClose(w))
+	while (!glfwWindowShouldClose(currentWindow))
 	{
 		Game::Draw();
-		glfwSwapBuffers(w);
+		glfwSwapBuffers(currentWindow);
 		glfwPollEvents();
 	}
-
+	
 	glfwTerminate();
 }
 
