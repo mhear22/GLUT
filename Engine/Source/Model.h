@@ -2,13 +2,13 @@
 #define model_hpp
 
 #include "header.h"
-#include "DrawTool.h"
+#include "ModelBase.h"
 
-class Model
+class Model: ModelBase
 {
 public:
-	Model(DrawTool* tool);
-	~Model();
+	Model();
+	void Draw(DrawTool* tool);
 };
 
 #endif /* model_hpp */

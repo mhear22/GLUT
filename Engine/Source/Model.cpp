@@ -1,11 +1,11 @@
 #include "Model.h"
 
-Model::Model(DrawTool* tool)
+Model::Model()
 {
 	
 }
 
-Model::~Model()
+void Model::Draw(DrawTool* tool)
 {
 	
 }

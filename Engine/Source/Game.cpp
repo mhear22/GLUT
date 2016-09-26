@@ -91,12 +91,13 @@ Game::Game()
 	glfwSetMouseButtonCallback(currentWindow, Input::Click);
 	glfwSetCursorPosCallback(currentWindow, Input::Move);
 	
-
+	
 	drawTool->LoadDebugWall3D();
 }
 
 void Game::Run()
 {
+	container->Draw(drawTool);
 	if(currentWindow == nullptr)
 	{
 		throw "Null Pointer Exception";

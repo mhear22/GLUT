@@ -4,6 +4,8 @@
 #include "Shader.h"
 #include "Camera.h"
 #include "Input.h"
+#include "ModelBase.h"
+#include "ModelContainer.h"
 
 using namespace std::chrono;
 
@@ -20,4 +22,5 @@ private:
 	DrawTool* drawTool;
 	Camera* cam;
 	Input* input;
+	ModelContainer* container;
 };
