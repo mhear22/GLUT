@@ -6,6 +6,7 @@ Input::Input(GLFWwindow* window,Camera* cam)
 {
 	this->camera = cam;
 	glfwSetInputMode(window,GLFW_CURSOR,GLFW_CURSOR_DISABLED);
+	glfwGetCursorPos(window, &mouseX, &mouseY);
 }
 
 double Input::mouseX = 0.0f;
