@@ -10,7 +10,7 @@ double Input::mouseY = 0.0;
 
 void Input::Draw()
 {
-	camera->OffsetOrientation(mouseX, mouseY);
+	camera->OffsetOrientation((float)mouseX, (float)mouseY);
 	mouseX = 0.0;
 	mouseY = 0.0;
 }
