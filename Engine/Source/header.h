@@ -2,7 +2,11 @@
 #ifndef __header_h__
 #define __header_h__
 
+#ifndef GLEW_STATIC
 #define GLEW_STATIC
+#else
+#endif // !GLEW_STATIC
+
 
 
 #ifdef __APPLE__ //Apple includes

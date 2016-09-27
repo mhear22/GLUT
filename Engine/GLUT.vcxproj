@@ -26,6 +26,7 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\ModelContainer.cpp" />
     <ClCompile Include="Source\Shader.cpp" />
+    <ClCompile Include="Source\SkyboxModel.cpp" />
     <ClCompile Include="Source\TestModel.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +38,7 @@
     <ClInclude Include="Source\ModelBase.h" />
     <ClInclude Include="Source\ModelContainer.h" />
     <ClInclude Include="Source\Shader.h" />
+    <ClInclude Include="Source\SkyboxModel.h" />
     <ClInclude Include="Source\TestModel.h" />
   </ItemGroup>
   <ItemGroup>
