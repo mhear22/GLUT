@@ -1,12 +1,11 @@
-#include "TestModel.h"
+#include "SkyboxModel.h"
 
-TestModel::TestModel()
+SkyboxModel::SkyboxModel()
 {
-	_polyStart = 0;
-	_polyEnd = 0;
+	
 }
 
-void TestModel::Load(DrawTool* tool)
+void SkyboxModel::Load(DrawTool* tool)
 {
 	VAO = 0;
 	VBO = 0;
@@ -17,44 +16,40 @@ void TestModel::Load(DrawTool* tool)
 	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	
-	
 	GLfloat Vertex[]
 	{
-		-0.8f, 0.8f, 0.8f,
-		-0.8f,-0.8f, 0.8f,
-		0.8f,-0.8f, 0.8f,
+		-1, 1, 1,
+		-1,-1, 1,
+		 1,-1, 1,
 		
-		-0.8f, 0.8f, 0.8f,
-		0.8f,-0.8f, 0.8f,
-		0.8f, 0.8f, 0.8f,
+		-1, 1, 1,
+		 1,-1, 1,
+		 1, 1, 1,
 		
+		-1, 1,-1,
+		-1,-1,-1,
+		 1,-1,-1,
 		
-		-0.8f, 0.8f, -0.8f,
-		-0.8f,-0.8f, -0.8f,
-		0.8f,-0.8f, -0.8f,
-		
-		-0.8f, 0.8f, -0.8f,
-		0.8f,-0.8f, -0.8f,
-		0.8f, 0.8f, -0.8f,
+		-1, 1,-1,
+		 1,-1,-1,
+		 1, 1,-1,
 	};
 	
 	int length = sizeof(Vertex) / sizeof(Vertex[0]) * 3;
 	_polyStart = tool->GetPolyStart(length);
 	_polyEnd = _polyStart + length;
 	
-	
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);
-	glEnableVertexAttribArray(tool->GetAttrib((GLchar *)"vert"));
+	glEnableVertexAttribArray(tool->GetAttrib((GLchar*)"vert"));
 	glVertexAttribPointer(tool->GetAttrib((GLchar *)"vert"), 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
 
-void TestModel::Draw(DrawTool* tool)
+void SkyboxModel::Draw(DrawTool* tool)
 {
 	glBindVertexArray(VAO);
-	//link this to the class better
 	glDrawArrays(GL_TRIANGLES, _polyStart, _polyEnd);
 	glBindVertexArray(0);
 }

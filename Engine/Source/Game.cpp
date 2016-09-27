@@ -93,6 +93,7 @@ Game::Game()
 	glfwSetCursorPosCallback(currentWindow, Input::Move);
 	
 	container->AddModel(new TestModel());
+	container->AddModel(new SkyboxModel());
 }
 
 void Game::Run()

@@ -3,6 +3,14 @@
 DrawTool::DrawTool(GLuint program)
 {
 	Program = program;
+	modelIndex = 0;
+}
+
+int DrawTool::GetPolyStart(int length)
+{
+	auto start = modelIndex;
+	modelIndex += length;
+	return start;
 }
 
 GLint DrawTool::GetAttrib(GLchar* glChar)
