@@ -1,18 +1,19 @@
 #include "Input.h"
 
-Input::Input(Camera* cam)
+
+
+Input::Input(GLFWwindow* window,Camera* cam)
 {
 	this->camera = cam;
+	glfwSetInputMode(window,GLFW_CURSOR,GLFW_CURSOR_DISABLED);
 }
 
-double Input::mouseX = 0.0;
-double Input::mouseY = 0.0;
+double Input::mouseX = 0.0f;
+double Input::mouseY = 0.0f;
 
 void Input::Draw()
 {
-	camera->OffsetOrientation((float)mouseX, (float)mouseY);
-	mouseX = 0.0;
-	mouseY = 0.0;
+	camera->SetOrientation(mouseX, mouseY);
 }
 void Input::Click(GLFWwindow* window, int button, int action, int mods)
 {
@@ -21,14 +22,13 @@ void Input::Click(GLFWwindow* window, int button, int action, int mods)
 
 void Input::Move(GLFWwindow* window, double x, double y)
 {
+	printf("moved %f, %f\n", x,y);
 	if(x == 0 && y == 0)
 	{
 		return;
 	}
-	printf("moved %f, %f\n", x,y);
-	mouseX = mouseX + x;
-	mouseY = mouseY + y;
-	glfwSetCursorPos(window, 0,0);
+	mouseX = x;
+	mouseY = y;
 }
 
 void Input::KeyPress(GLFWwindow* window, int key, int scancode, int actions, int mods)

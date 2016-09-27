@@ -21,10 +21,10 @@ void Camera::draw()
 	Shader::SetUniform("camera", matrix, Program);
 }
 
-void Camera::OffsetOrientation(float x, float y)
+void Camera::SetOrientation(float x, float y)
 {
-	_horizontalAngle += x * _sensitivity;
-	_verticalAngle += y * _sensitivity;
+	_horizontalAngle = x * _sensitivity;
+	_verticalAngle = y * _sensitivity;
 	NormaliseAngles();
 }
 

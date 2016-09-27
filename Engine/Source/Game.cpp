@@ -15,7 +15,7 @@ Game::Game()
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
-	bool FULLSCREEN = false;
+	bool FULLSCREEN = true;
 	
 	int screenHeight = 0;
 	int screenWidth = 0;
@@ -78,7 +78,7 @@ Game::Game()
 	
 	cam = new Camera(Program, aspect);
 	drawTool = new DrawTool(Program);
-	input = new Input(cam);
+	input = new Input(currentWindow,cam);
 	container = new ModelContainer(drawTool);
 	
 	glUseProgram(0);
@@ -87,7 +87,7 @@ Game::Game()
 	glDepthFunc(GL_LESS);
 	
 	glfwSetKeyCallback(currentWindow, Input::KeyPress);
-	glfwSetInputMode(currentWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	//glfwSetInputMode(currentWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPos(currentWindow, 0, 0);
 	glfwSetMouseButtonCallback(currentWindow, Input::Click);
 	glfwSetCursorPosCallback(currentWindow, Input::Move);

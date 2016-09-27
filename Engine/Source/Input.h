@@ -7,7 +7,7 @@
 class Input
 {
 public:
-	Input(Camera* cam);
+	Input(GLFWwindow* window, Camera* cam);
 	
 	void Draw();
 	

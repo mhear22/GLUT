@@ -9,7 +9,7 @@ public:
 	Camera(GLuint,float);
 	~Camera();
 
-	void OffsetOrientation(float x, float y);
+	void SetOrientation(float x, float y);
 	mat4 Orientation();
 	mat4 Matrix();
 	mat4 Projection();
