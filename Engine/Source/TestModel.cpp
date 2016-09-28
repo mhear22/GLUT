@@ -37,9 +37,9 @@ void TestModel::Load(DrawTool* tool)
 		0.8f,-0.8f, -0.8f,
 		0.8f, 0.8f, -0.8f,
 	};
-	
+
 	int length = sizeof(Vertex) / sizeof(Vertex[0]) * 3;
-	_polyStart = tool->GetPolyStart(length);
+	_polyStart = 0;
 	_polyEnd = _polyStart + length;
 	
 	
@@ -54,7 +54,6 @@ void TestModel::Load(DrawTool* tool)
 void TestModel::Draw(DrawTool* tool)
 {
 	glBindVertexArray(VAO);
-	//link this to the class better
 	glDrawArrays(GL_TRIANGLES, _polyStart, _polyEnd);
 	glBindVertexArray(0);
 }

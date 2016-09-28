@@ -18,7 +18,7 @@ void SkyboxModel::Load(DrawTool* tool)
 	
 	GLfloat Vertex[]
 	{
-		-1, 1, 1,
+		-1, 2, 1,
 		-1,-1, 1,
 		 1,-1, 1,
 		
@@ -36,7 +36,7 @@ void SkyboxModel::Load(DrawTool* tool)
 	};
 	
 	int length = sizeof(Vertex) / sizeof(Vertex[0]) * 3;
-	_polyStart = tool->GetPolyStart(length);
+	_polyStart = 0;
 	_polyEnd = _polyStart + length;
 	
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex), Vertex, GL_STATIC_DRAW);

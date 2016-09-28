@@ -15,6 +15,7 @@ public:
 private:
 	DrawTool* tool;
 	std::vector<ModelBase*> models;
+	int frame;
 };
 
 #endif

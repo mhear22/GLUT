@@ -8,7 +8,6 @@ public:
 	
 	GLint GetAttrib(GLchar* glChar);
 	float RandomFloat(float low, float high);
-	int GetPolyStart(int length);
 	
 private:
 	int modelIndex;
