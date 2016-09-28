@@ -92,8 +92,11 @@ Game::Game()
 	glfwSetMouseButtonCallback(currentWindow, Input::Click);
 	glfwSetCursorPosCallback(currentWindow, Input::Move);
 	
-	container->AddModel(new TestModel());
-	container->AddModel(new SkyboxModel());
+	
+	char location[] = "../Models/box.obj";
+	container->AddModel(new FileModel(location));
+	//container->AddModel(new TestModel());
+	//container->AddModel(new SkyboxModel());
 }
 
 void Game::Run()

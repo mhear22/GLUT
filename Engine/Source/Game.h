@@ -8,6 +8,7 @@
 #include "ModelContainer.h"
 #include "TestModel.h"
 #include "SkyboxModel.h"
+#include "FileModel.h"
 
 using namespace std::chrono;
 

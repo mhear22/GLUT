@@ -10,6 +10,7 @@
 		083230AE1D9901E500D9F842 /* TestModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083230AC1D9901E500D9F842 /* TestModel.cpp */; };
 		083230B21D99353D00D9F842 /* ModelContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083230B01D99353D00D9F842 /* ModelContainer.cpp */; };
 		083468271D9A8D6900B25F85 /* SkyboxModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083468251D9A8D6900B25F85 /* SkyboxModel.cpp */; };
+		083752B11D9BD7F900EF1325 /* FileModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083752AF1D9BD7F900EF1325 /* FileModel.cpp */; };
 		08C0E3981D963E90004D8C7B /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C0E3971D963E90004D8C7B /* Camera.cpp */; };
 		08C0E39D1D963EAE004D8C7B /* DrawTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C0E3991D963EAE004D8C7B /* DrawTool.cpp */; };
 		08C0E39E1D963EAE004D8C7B /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C0E39A1D963EAE004D8C7B /* Game.cpp */; };
@@ -40,6 +41,9 @@
 		083230B11D99353D00D9F842 /* ModelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelContainer.h; path = Engine/Source/ModelContainer.h; sourceTree = "<group>"; };
 		083468251D9A8D6900B25F85 /* SkyboxModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkyboxModel.cpp; path = Engine/Source/SkyboxModel.cpp; sourceTree = "<group>"; };
 		083468261D9A8D6900B25F85 /* SkyboxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkyboxModel.h; path = Engine/Source/SkyboxModel.h; sourceTree = "<group>"; };
+		083752AF1D9BD7F900EF1325 /* FileModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileModel.cpp; path = Engine/Source/FileModel.cpp; sourceTree = "<group>"; };
+		083752B01D9BD7F900EF1325 /* FileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileModel.h; path = Engine/Source/FileModel.h; sourceTree = "<group>"; };
+		083752B31D9BDD1300EF1325 /* box.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = box.obj; path = Engine/Models/box.obj; sourceTree = "<group>"; };
 		08C0E3971D963E90004D8C7B /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = Engine/Source/Camera.cpp; sourceTree = "<group>"; };
 		08C0E3991D963EAE004D8C7B /* DrawTool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DrawTool.cpp; path = Engine/Source/DrawTool.cpp; sourceTree = "<group>"; };
 		08C0E39A1D963EAE004D8C7B /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = Engine/Source/Game.cpp; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 				083230AF1D992B8B00D9F842 /* ModelBase.h */,
 				083230AD1D9901E500D9F842 /* TestModel.h */,
 				083468261D9A8D6900B25F85 /* SkyboxModel.h */,
+				083752B01D9BD7F900EF1325 /* FileModel.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -86,9 +91,18 @@
 		083468241D9A8CFB00B25F85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				083752AF1D9BD7F900EF1325 /* FileModel.cpp */,
 				083468251D9A8D6900B25F85 /* SkyboxModel.cpp */,
 				083230AC1D9901E500D9F842 /* TestModel.cpp */,
 				083230B01D99353D00D9F842 /* ModelContainer.cpp */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		083752B21D9BDD0400EF1325 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				083752B31D9BDD1300EF1325 /* box.obj */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -143,6 +157,7 @@
 		08CBF6BC1CE4CDB000E7A1C3 = {
 			isa = PBXGroup;
 			children = (
+				083752B21D9BDD0400EF1325 /* Models */,
 				08C0E3941D963E3F004D8C7B /* src */,
 				08CBF6D11CE4D03F00E7A1C3 /* libglfw.3.1.dylib */,
 				08CBF6CF1CE4D02B00E7A1C3 /* OpenGL.framework */,
@@ -214,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08C0E39E1D963EAE004D8C7B /* Game.cpp in Sources */,
+				083752B11D9BD7F900EF1325 /* FileModel.cpp in Sources */,
 				083230AE1D9901E500D9F842 /* TestModel.cpp in Sources */,
 				08C0E3981D963E90004D8C7B /* Camera.cpp in Sources */,
 				08C0E3AB1D968FE9004D8C7B /* Input.cpp in Sources */,
