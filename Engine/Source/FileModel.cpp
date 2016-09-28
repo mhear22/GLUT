@@ -2,9 +2,12 @@
 
 FileModel::FileModel(char* filepath)
 {
-	FILE* file = std::fopen(filepath, "r");
-	if(file == nullptr){
-		throw "Could not find file exception";
+	std::fstream file;
+	file.open(filepath);
+	std::string s = "";
+	file >> s;
+	if(s == ""){
+		
 	}
 }
 
