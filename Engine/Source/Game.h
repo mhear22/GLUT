@@ -20,7 +20,7 @@ public:
 private:
 	void Draw();
 	
-	GLFWwindow* currentWindow;
+	GLFWwindow* currentWindow;;
 	DrawTool* drawTool;
 	Camera* cam;
 	Input* input;
