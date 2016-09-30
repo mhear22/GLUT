@@ -5,8 +5,17 @@ OBJLoader::OBJLoader(char* filename)
 	
 }
 
-std::vector<glm::vec3> GetVertex()
+std::vector<glm::vec3> OBJLoader::GetVertex()
 {
-	auto vect = std::vector<glm::vec3>();
-	return vect;
+	return vertexArray;
+}
+
+std::vector<glm::vec3> OBJLoader::GetNormals()
+{
+	return normals;
+}
+
+std::vector<glm::vec2> OBJLoader::GetUVs()
+{
+	return uv;
 }
