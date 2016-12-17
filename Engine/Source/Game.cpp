@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game(Configuration* config)
 {
 	if(!glfwInit())
 	{
@@ -15,20 +15,24 @@ Game::Game()
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
-	bool FULLSCREEN = true;
+	int screenHeight = config->ScreenHeight;
+	int screenWidth = config->ScreenWidth;
 	
-	int screenHeight = 0;
-	int screenWidth = 0;
-	
-	if (FULLSCREEN)
+	if (config->Fullscreen)
 	{
 		GLFWmonitor* x = glfwGetPrimaryMonitor();
 		const GLFWvidmode* mode = glfwGetVideoMode(x);
 		int count;
 		GLFWmonitor** monitors = glfwGetMonitors(&count);
+
+		
+		if (config->ScreenNumber > count) {}
+
+
+		GLFWmonitor* SelectedMonitor = monitors[config->ScreenNumber];
 		screenWidth = mode->width;
 		screenHeight = mode->height;
-		currentWindow = glfwCreateWindow(screenWidth, screenHeight, "", monitors[0], NULL);
+		currentWindow = glfwCreateWindow(screenWidth, screenHeight, "", SelectedMonitor, NULL);
 	}
 	else
 	{
@@ -93,9 +97,9 @@ Game::Game()
 	glfwSetCursorPosCallback(currentWindow, Input::Move);
 	
 	
-	char location[] = "../Models/box.obj";
-	container->AddModel(new FileModel(location));
-	//container->AddModel(new TestModel());
+	//char location[] = "../Models/box.obj";
+	//container->AddModel(new FileModel(location));
+	container->AddModel(new TestModel());
 	//container->AddModel(new SkyboxModel());
 }
 

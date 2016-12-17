@@ -9,13 +9,14 @@
 #include "TestModel.h"
 #include "SkyboxModel.h"
 #include "FileModel.h"
+#include "Configuration.h"
 
 using namespace std::chrono;
 
 class Game
 {
 public:
-	Game();
+	Game(Configuration* config);
 	void Run();
 	GLuint Program;
 private:

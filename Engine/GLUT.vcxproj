@@ -24,6 +24,7 @@
     <ClCompile Include="Source\FileModel.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\Input.cpp" />
+    <ClCompile Include="Source\Configuration.h" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\ModelContainer.cpp" />
     <ClCompile Include="Source\Shader.cpp" />
@@ -45,8 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Source\FragmentShader.glsl" />
-    <None Include="Source\VertexShader.glsl" />
+    <None Include="Source\Shaders\FragmentShader.glsl" />
+    <None Include="Source\Shaders\VertexShader.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5BFD9930-B09E-46BD-B733-7DA9669F8CAB}</ProjectGuid>
@@ -113,7 +114,7 @@
     <IncludePath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\include;C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>
     <SourcePath>C:\Git\Glut\packages\glew.redist.1.9.0.1\build\native\bin\v110\Win32\Release\dynamic;C:\Git\Glut\packages\GLFW\lib-vc2015;$(SourcePath)</SourcePath>
     <LibraryPath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\lib\x64\Release;C:\Git\Glut\packages\GLFW\lib-vc2015;$(LibraryPath)</LibraryPath>
-    <LinkIncremental>false</LinkIncremental>
+    <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Git\GLUT\packages\glew.v140.1.12.0\build\native\include;C:\Git\Glut\packages\GLFW\include;$(IncludePath)</IncludePath>

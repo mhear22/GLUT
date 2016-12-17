@@ -1,9 +1,13 @@
 #include "header.h"
 #include "Game.h"
+#include "Configuration.h"
 
 int main()
 {
-	Game g = Game();
+	auto config = new Configuration();
+	config->Fullscreen = false;
+
+	Game g = Game(config);
 	g.Run();
 	return 0;
 }

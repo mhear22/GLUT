@@ -16,6 +16,9 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{24dbc053-4ca1-4d8d-9b7e-cb7178d79626}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NewFilter1">
+      <UniqueIdentifier>{9bea4824-6bf6-476a-baef-fe8fb2ca3a19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -46,6 +49,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\FileModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Configuration.h">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,10 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Source\FragmentShader.glsl">
+    <None Include="Source\Shaders\FragmentShader.glsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="Source\VertexShader.glsl">
+    <None Include="Source\Shaders\VertexShader.glsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

@@ -38,6 +38,10 @@ void Input::KeyPress(GLFWwindow* window, int key, int scancode, int actions, int
 	{
 		exit(0);
 	}
+	else if (key == 87)
+	{
+
+	}
 	else if (key == 96)
 	{
 		printf("Break");
