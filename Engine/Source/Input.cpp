@@ -46,6 +46,7 @@ float Adjust(float value, int action)
 		return value;
 	else if(action == GLFW_RELEASE)
 		return 0;
+	return 0;
 }
 
 void Input::KeyPress(GLFWwindow* window, int key, int scancode, int action, int mods)
