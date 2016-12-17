@@ -5,11 +5,11 @@
 #include "header.h"
 
 static std::string DefaultVertexShader =
-#include "Shaders\VertexShader.glsl"
+#include "Shaders/VertexShader.glsl"
 
 
 static std::string DefaultFragmentShader =
-#include "Shaders\FragmentShader.glsl"
+#include "Shaders/FragmentShader.glsl"
 
 class Shader
 {
