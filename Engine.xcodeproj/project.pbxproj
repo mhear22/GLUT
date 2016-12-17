@@ -10,6 +10,7 @@
 		083230AE1D9901E500D9F842 /* TestModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083230AC1D9901E500D9F842 /* TestModel.cpp */; };
 		083230B21D99353D00D9F842 /* ModelContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083230B01D99353D00D9F842 /* ModelContainer.cpp */; };
 		083468271D9A8D6900B25F85 /* SkyboxModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083468251D9A8D6900B25F85 /* SkyboxModel.cpp */; };
+		083704131D9E73B50090AA43 /* OBJLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083704111D9E73B50090AA43 /* OBJLoader.cpp */; };
 		083752B11D9BD7F900EF1325 /* FileModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 083752AF1D9BD7F900EF1325 /* FileModel.cpp */; };
 		08C0E3981D963E90004D8C7B /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C0E3971D963E90004D8C7B /* Camera.cpp */; };
 		08C0E39D1D963EAE004D8C7B /* DrawTool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08C0E3991D963EAE004D8C7B /* DrawTool.cpp */; };
@@ -41,6 +42,8 @@
 		083230B11D99353D00D9F842 /* ModelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelContainer.h; path = Engine/Source/ModelContainer.h; sourceTree = "<group>"; };
 		083468251D9A8D6900B25F85 /* SkyboxModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkyboxModel.cpp; path = Engine/Source/SkyboxModel.cpp; sourceTree = "<group>"; };
 		083468261D9A8D6900B25F85 /* SkyboxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkyboxModel.h; path = Engine/Source/SkyboxModel.h; sourceTree = "<group>"; };
+		083704111D9E73B50090AA43 /* OBJLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OBJLoader.cpp; path = Engine/Source/OBJLoader.cpp; sourceTree = "<group>"; };
+		083704121D9E73B50090AA43 /* OBJLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OBJLoader.h; path = Engine/Source/OBJLoader.h; sourceTree = "<group>"; };
 		083752AF1D9BD7F900EF1325 /* FileModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileModel.cpp; path = Engine/Source/FileModel.cpp; sourceTree = "<group>"; };
 		083752B01D9BD7F900EF1325 /* FileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileModel.h; path = Engine/Source/FileModel.h; sourceTree = "<group>"; };
 		083752B31D9BDD1300EF1325 /* box.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = box.obj; path = Engine/Models/box.obj; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		083468231D9A8CE900B25F85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				083704121D9E73B50090AA43 /* OBJLoader.h */,
 				083230B11D99353D00D9F842 /* ModelContainer.h */,
 				083230AF1D992B8B00D9F842 /* ModelBase.h */,
 				083230AD1D9901E500D9F842 /* TestModel.h */,
@@ -91,6 +95,7 @@
 		083468241D9A8CFB00B25F85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				083704111D9E73B50090AA43 /* OBJLoader.cpp */,
 				083752AF1D9BD7F900EF1325 /* FileModel.cpp */,
 				083468251D9A8D6900B25F85 /* SkyboxModel.cpp */,
 				083230AC1D9901E500D9F842 /* TestModel.cpp */,
@@ -232,6 +237,7 @@
 				083752B11D9BD7F900EF1325 /* FileModel.cpp in Sources */,
 				083230AE1D9901E500D9F842 /* TestModel.cpp in Sources */,
 				08C0E3981D963E90004D8C7B /* Camera.cpp in Sources */,
+				083704131D9E73B50090AA43 /* OBJLoader.cpp in Sources */,
 				08C0E3AB1D968FE9004D8C7B /* Input.cpp in Sources */,
 				08C0E39F1D963EAE004D8C7B /* main.cpp in Sources */,
 				08C0E39D1D963EAE004D8C7B /* DrawTool.cpp in Sources */,
