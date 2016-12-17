@@ -20,18 +20,15 @@ Game::Game(Configuration* config)
 	
 	if (config->Fullscreen)
 	{
-		GLFWmonitor* x = glfwGetPrimaryMonitor();
-		const GLFWvidmode* mode = glfwGetVideoMode(x);
 		int count;
 		GLFWmonitor** monitors = glfwGetMonitors(&count);
-
-		
-		if (config->ScreenNumber > count) {}
-
-
+		if (config->ScreenNumber > count)
+			throw "bad";
 		GLFWmonitor* SelectedMonitor = monitors[config->ScreenNumber];
+		const GLFWvidmode* mode = glfwGetVideoMode(SelectedMonitor);
 		screenWidth = mode->width;
 		screenHeight = mode->height;
+		printf("Refresh Rate: %i \n Width: %i \n Hight: %i\n", mode->refreshRate, screenWidth, screenHeight);
 		currentWindow = glfwCreateWindow(screenWidth, screenHeight, "", SelectedMonitor, NULL);
 	}
 	else

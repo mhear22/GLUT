@@ -6,7 +6,7 @@ int main()
 {
 	auto config = new Configuration();
 	config->Fullscreen = true;
-
+	config->ScreenNumber = 0;
 	Game g = Game(config);
 	g.Run();
 	return 0;
