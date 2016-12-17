@@ -28,6 +28,12 @@ void Camera::SetOrientation(float x, float y)
 	NormaliseAngles();
 }
 
+void Camera::SetPosition(float x, float y, float z)
+{
+	auto newPos = glm::vec3(x, y, z);
+	_position = newPos + _position;
+}
+
 mat4 Camera::Projection()
 {
 	return perspective(radians(_fov), _aspect, _nearPlane, _farPlane);

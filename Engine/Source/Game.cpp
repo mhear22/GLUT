@@ -129,4 +129,5 @@ void Game::Draw()
 	input->Draw();
 	cam->draw();
 	container->Draw();
+	glUseProgram(0);
 }

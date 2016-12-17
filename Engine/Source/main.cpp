@@ -5,7 +5,7 @@
 int main()
 {
 	auto config = new Configuration();
-	config->Fullscreen = false;
+	config->Fullscreen = true;
 
 	Game g = Game(config);
 	g.Run();

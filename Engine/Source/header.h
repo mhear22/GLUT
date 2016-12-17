@@ -22,6 +22,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/rotate_vector.hpp>
 
 //c++11 includes
 #include <cstdio>
@@ -30,5 +31,6 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <functional>
 
 #endif

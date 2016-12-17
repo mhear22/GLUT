@@ -10,6 +10,8 @@ public:
 	~Camera();
 
 	void SetOrientation(float x, float y);
+	void SetPosition(float forward, float up, float left);
+
 	mat4 Orientation();
 	mat4 Matrix();
 	mat4 Projection();
