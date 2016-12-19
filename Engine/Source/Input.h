@@ -10,7 +10,7 @@ class Input
 public:
 	Input(GLFWwindow* window, Camera* cam);
 	
-	void Draw();
+	void Draw(float seconds);
 	
 	void static Click(GLFWwindow* window, int button, int action, int mods);
 	void static Move(GLFWwindow* window, double x, double y);

@@ -10,6 +10,7 @@
 #include "SkyboxModel.h"
 #include "FileModel.h"
 #include "Configuration.h"
+#include "TimeMonitor.h"
 
 using namespace std::chrono;
 
@@ -22,9 +23,12 @@ public:
 private:
 	void Draw();
 	
+	int ScreenHeight;
+	int ScreenWidth;
 	GLFWwindow* currentWindow;;
 	DrawTool* drawTool;
 	Camera* cam;
 	Input* input;
 	ModelContainer* container;
+	TimeMonitor* time;
 };
