@@ -31,6 +31,7 @@
     <ClCompile Include="Source\Shader.cpp" />
     <ClCompile Include="Source\SkyboxModel.cpp" />
     <ClCompile Include="Source\TestModel.cpp" />
+    <ClCompile Include="Source\TimeMonitor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Camera.h" />
@@ -45,6 +46,7 @@
     <ClInclude Include="Source\Shader.h" />
     <ClInclude Include="Source\SkyboxModel.h" />
     <ClInclude Include="Source\TestModel.h" />
+    <ClInclude Include="Source\TimeMonitor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
