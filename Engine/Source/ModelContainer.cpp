@@ -26,16 +26,6 @@ void ModelContainer::Draw()
 	auto size = models.size();
 	if(size == 0)
 		return;
-	
-	//frame++;
-	//if (frame % 2 >= 1)
-	//{
-	//	models[1]->Draw(tool);
-	//}
-	//else
-	//{
-	//	models[0]->Draw(tool);
-	//}
 
 	for(int i = 0; i != models.size(); i++)
 	{

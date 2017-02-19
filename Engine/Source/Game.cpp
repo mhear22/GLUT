@@ -15,8 +15,10 @@ Game::Game(Configuration* config)
 	
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	
-	int screenHeight = config->ScreenHeight;
-	int screenWidth = config->ScreenWidth;
+	GLFWmonitor* SelectedMonitor = NULL;
+	
+	ScreenWidth = 640;
+	ScreenHeight = 480;
 	
 	if (config->Fullscreen)
 	{
@@ -24,19 +26,12 @@ Game::Game(Configuration* config)
 		GLFWmonitor** monitors = glfwGetMonitors(&count);
 		if (config->ScreenNumber > count)
 			throw "bad";
-		GLFWmonitor* SelectedMonitor = monitors[config->ScreenNumber];
+		SelectedMonitor = monitors[config->ScreenNumber];
 		const GLFWvidmode* mode = glfwGetVideoMode(SelectedMonitor);
-		screenWidth = mode->width;
-		screenHeight = mode->height;
-		printf("Refresh Rate: %i \n Width: %i \n Hight: %i\n", mode->refreshRate, screenWidth, screenHeight);
-		currentWindow = glfwCreateWindow(screenWidth, screenHeight, "", SelectedMonitor, NULL);
+		ScreenWidth = mode->width;
+		ScreenHeight = mode->height;
 	}
-	else
-	{
-		screenWidth = 640;
-		screenHeight = 480;
-		currentWindow = glfwCreateWindow(screenWidth, screenHeight, "", NULL, NULL);
-	}
+	currentWindow = glfwCreateWindow(ScreenWidth,ScreenHeight, "", SelectedMonitor, NULL);
 
 	glfwMakeContextCurrent(currentWindow);
 	
@@ -61,8 +56,6 @@ Game::Game(Configuration* config)
 	
 	glPolygonMode(GL_FRONT_AND_BACK, GL_TRIANGLES);
 
-
-	
 	Program = glCreateProgram();
 	for (int i = 0; i < shaders.size(); i++)
 	{
@@ -71,7 +64,7 @@ Game::Game(Configuration* config)
 	glBindAttribLocation(Program, 1, "vert");
 	
 	
-	float aspect = ((screenWidth + 0.0f) /(screenHeight + 0.0f));
+	float aspect = ((ScreenWidth + 0.0f) /(ScreenHeight + 0.0f));
 	
 	glLinkProgram(Program);
 	
@@ -88,7 +81,7 @@ Game::Game(Configuration* config)
 	glDepthFunc(GL_LESS);
 	
 	glfwSetKeyCallback(currentWindow, Input::KeyPress);
-	//glfwSetInputMode(currentWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetInputMode(currentWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glfwSetCursorPos(currentWindow, 0, 0);
 	glfwSetMouseButtonCallback(currentWindow, Input::Click);
 	glfwSetCursorPosCallback(currentWindow, Input::Move);
@@ -98,6 +91,8 @@ Game::Game(Configuration* config)
 	//container->AddModel(new FileModel(location));
 	container->AddModel(new TestModel());
 	//container->AddModel(new SkyboxModel());
+	
+	
 }
 
 void Game::Run()
@@ -108,6 +103,8 @@ void Game::Run()
 	}
 	
 	container->Load();
+	
+	time = new TimeMonitor;
 	
 	while (!glfwWindowShouldClose(currentWindow))
 	{
@@ -121,9 +118,10 @@ void Game::Run()
 
 void Game::Draw()
 {
+	float tick = time->Tick();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glUseProgram(Program);
-	input->Draw();
+	input->Draw(tick);
 	cam->draw();
 	container->Draw();
 	glUseProgram(0);

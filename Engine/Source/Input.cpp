@@ -16,11 +16,11 @@ double Input::posX = 0.0f;
 double Input::posY = 0.0f;
 double Input::posZ = 0.0f;
 
-void Input::Draw()
+void Input::Draw(float seconds)
 {
 	float modifier = 2.0f;
 	camera->SetOrientation(mouseX, mouseY);
-
+	
 	//Workout where you are looking
 	camera->SetPosition(modifier * posX, modifier * posZ, modifier * posY);
 }
