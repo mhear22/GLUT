@@ -1,0 +1,9 @@
+C:\Git\OpenGL\OpenGL\bin\Debug\netcoreapp1.1\OpenGL.deps.json
+C:\Git\OpenGL\OpenGL\bin\Debug\netcoreapp1.1\OpenGL.runtimeconfig.json
+C:\Git\OpenGL\OpenGL\bin\Debug\netcoreapp1.1\OpenGL.runtimeconfig.dev.json
+C:\Git\OpenGL\OpenGL\bin\Debug\netcoreapp1.1\OpenGL.dll
+C:\Git\OpenGL\OpenGL\bin\Debug\netcoreapp1.1\OpenGL.pdb
+C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.csprojResolveAssemblyReference.cache
+C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.AssemblyInfo.cs
+C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.dll
+C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.pdb
