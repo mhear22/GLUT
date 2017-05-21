@@ -20,7 +20,14 @@ namespace ConsoleApp1
 	public class Game : GameWindow
 	{
 		public Game()
-			: base(1920, 1080, GraphicsMode.Default, "", GameWindowFlags.FixedWindow)
+			: base(
+				1920,1080,
+				GraphicsMode.Default,
+				"",
+				GameWindowFlags.FixedWindow,
+				DisplayDevice.GetDisplay(DisplayIndex.Default),
+				4,1,
+				GraphicsContextFlags.Default)
 		{
 			
 		}
@@ -36,10 +43,8 @@ namespace ConsoleApp1
 		{
 			base.OnKeyUp(e);
 
-			if(e.Key == Key.Escape)
-			{
+			if(e.Key == Key.F4 && e.Alt)
 				Exit();
-			}
 		}
 
 		protected override void OnRenderFrame(FrameEventArgs e)
