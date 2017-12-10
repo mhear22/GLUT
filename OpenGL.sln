@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL", "OpenGL\OpenGL.csproj", "{FA587820-C370-4408-9086-BCD2B8FAB4B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weave", "OpenGL\Weave.csproj", "{FA587820-C370-4408-9086-BCD2B8FAB4B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A43C63C-26F6-43A1-AA89-B23434D0009D}
 	EndGlobalSection
 EndGlobal

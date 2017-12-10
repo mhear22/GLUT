@@ -6,12 +6,13 @@
     <ApplicationIcon />
     <OutputTypeEx>exe</OutputTypeEx>
     <StartupObject />
-    <AssemblyName>OpenGL</AssemblyName>
-    <RootNamespace>OpenGL</RootNamespace>
+    <AssemblyName>Weave</AssemblyName>
+    <RootNamespace>Weave</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenTK.NETCore" Version="1.1.2571.6431" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="OpenTK.NETCore" Version="1.1.2749.6433" />
   </ItemGroup>
 
 </Project>

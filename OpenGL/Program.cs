@@ -3,27 +3,61 @@ using OpenTK.Graphics;
 using System;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Input;
+using System.IO;
+using Newtonsoft.Json;
 
-namespace ConsoleApp1
+namespace Weave
 {
 	public class Program
 	{
-		static void Main(string[] args)
+		public static void Main()
 		{
-			using(var game = new Game())
-			{
-				game.Run(144.0);
+			ConfigModel configModel = null;
+
+			try {
+				var configDir = Directory.GetCurrentDirectory() + "\\config.json";
+				var file = File.ReadAllText(configDir);
+				configModel = JsonConvert.DeserializeObject<ConfigModel>(file);
+			}
+			catch (Exception ex) { }
+
+			if(configModel!=null) {
+				using (var game = new Game(configModel))
+				{
+					game.Run(144.0);
+				}
+			}
+			else {
+				using(var game = new Game())
+				{
+					game.Run(144.0);
+				}
 			}
 		}
 	}
 
 	public class Game : GameWindow
 	{
+		public Game(ConfigModel model)
+			: base(
+				model.Width??640,
+				model.Height??480,
+				GraphicsMode.Default,
+				"Weave",
+				GameWindowFlags.FixedWindow,
+				DisplayDevice.GetDisplay((DisplayIndex)(model.MonitorIndex??-1)),
+				4,1,
+				GraphicsContextFlags.Default
+			)
+		{
+			
+		}
+		
 		public Game()
 			: base(
 				1920,1080,
 				GraphicsMode.Default,
-				"",
+				"Weave",
 				GameWindowFlags.FixedWindow,
 				DisplayDevice.GetDisplay(DisplayIndex.Default),
 				4,1,

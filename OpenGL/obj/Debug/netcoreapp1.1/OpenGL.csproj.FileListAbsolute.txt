@@ -7,3 +7,5 @@ C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.csprojResolveAssemblyReferen
 C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.AssemblyInfo.cs
 C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.dll
 C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.pdb
+C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.csproj.CoreCompileInputs.cache
+C:\Git\OpenGL\OpenGL\obj\Debug\netcoreapp1.1\OpenGL.AssemblyInfoInputs.cache
