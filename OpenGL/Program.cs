@@ -19,7 +19,7 @@ namespace Weave
 				var file = File.ReadAllText(configDir);
 				configModel = JsonConvert.DeserializeObject<ConfigModel>(file);
 			}
-			catch (Exception ex) { }
+			catch { }
 
 			if(configModel!=null) {
 				using (var game = new Game(configModel))
@@ -66,11 +66,20 @@ namespace Weave
 			
 		}
 
+		private ModelBase model;
+
 		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
 			GL.ClearColor(0, 0, 0, 0);
 			GL.Enable(EnableCap.DepthTest);
+
+			var program = GL.CreateProgram();
+			GL.LinkProgram(program);
+			GL.UseProgram(program);
+
+			var tool = new DrawTool(program);
+			model = new Skybox(tool);
 		}
 
 		protected override void OnKeyUp(KeyboardKeyEventArgs e)
@@ -84,9 +93,10 @@ namespace Weave
 		protected override void OnRenderFrame(FrameEventArgs e)
 		{
 			base.OnRenderFrame(e);
-
 			GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-			
+
+			model.Draw();
+
 
 			SwapBuffers();
 		}
